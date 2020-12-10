@@ -41,9 +41,8 @@ class TrumpGame:
         card_list = self.make_card_list()
 
         self.shuffle()
-        self.draw_cards = []　　#自分ハンド
-        self.draw_cards2 = []　 #的ハンド
-
+        self.draw_cards = []
+        self.draw_cards2 = []
         for i in range(0, number):
             self.draw_cards.append(
                 self.card_list.pop(0)
@@ -233,5 +232,5 @@ if __name__ == '__main__':
     else:
         print("プレイヤーの負け")    
 
-    for card in tg.card_list:
+    for card in tg.card_list: #tg.card_listは残りのデッキ数
         print(card['string'])
