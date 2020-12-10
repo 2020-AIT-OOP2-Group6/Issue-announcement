@@ -25,8 +25,7 @@ class TrumpGame:
                     card['string'] = symbol + 'Q'
                 elif number == 4:
                     card['string'] = symbol + 'K'
-                
-
+                    
                 # カードをリストに追加
                 card_list.append(card)
 
@@ -43,15 +42,18 @@ class TrumpGame:
         self.shuffle()
         self.draw_cards = []
         self.draw_cards2 = []
+        
+        
         for i in range(0, number):
             self.draw_cards.append(
                 self.card_list.pop(0)
             )
-        for j in range(number, number + 5):
+
+        for i in range(5, number+5):
             self.draw_cards2.append(
                 self.card_list.pop(0)
             )
-            
+        
 
 
 
@@ -193,6 +195,7 @@ class TrumpGame:
                 else:
                     # 3カード
                     hand = 300
+
         elif straight_flag == True:
             # ストレート
             hand = 400
@@ -207,14 +210,14 @@ class TrumpGame:
             # なし
             hand = 0
 
+
         return hand 
 
-
+    
 if __name__ == '__main__':
     tg = TrumpGame()
    
     tg.reset_draw_cards(5)
-   
    
     print("プレイヤー　ハンド")
     for card in tg.draw_cards:
