@@ -25,7 +25,7 @@ class TrumpGame:
                     card['string'] = symbol + 'Q'
                 elif number == 4:
                     card['string'] = symbol + 'K'
-
+                    
                 # カードをリストに追加
                 card_list.append(card)
 
@@ -38,15 +38,17 @@ class TrumpGame:
     # 手札を作成する
     def reset_draw_cards(self, number):
         card_list = self.make_card_list()
+
         self.shuffle()
         self.draw_cards = []
         self.draw_cards2 = []
-
-
+        
+        
         for i in range(0, number):
             self.draw_cards.append(
                 self.card_list.pop(0)
             )
+
         for i in range(5, number+5):
             self.draw_cards2.append(
                 self.card_list.pop(0)
@@ -54,8 +56,9 @@ class TrumpGame:
         
 
 
+
     # 役のチェック処理
-    def check_poker_hand(self):
+    def check_poker_hand(self): #(tg)
         # ペア数
         pair_count = 0
         # 同じ数字のカウント
@@ -69,6 +72,7 @@ class TrumpGame:
 
         # 数字の昇順に並び替える
         cards = sorted(self.draw_cards, key=lambda x: x['number'])
+       
 
         # 比較チェックループ
         for i in range(1, 5):
@@ -110,26 +114,27 @@ class TrumpGame:
             else:
                 if pair_count > 0:
                     # フルハウス
-                    hand = 600
+                    hand = 500
                 else:
                     # 3カード
-                    hand = 500
+                    hand = 300
         elif straight_flag == True:
             # ストレート
             hand = 400
         elif pair_count > 0:
             if pair_count > 1:
                 # 2ペア
-                hand = 300
+                hand = 200
             else:
                 # 1ペア
-                hand = 200
+                hand = 100
         else:
             # なし
-            hand = 100
+            hand = 0
 
-        return hand
+        return hand 
 
+        # 役のチェック処理
     def check_poker_hand2(self):
         # ペア数
         pair_count = 0
@@ -144,6 +149,7 @@ class TrumpGame:
 
         # 数字の昇順に並び替える
         cards = sorted(self.draw_cards2, key=lambda x: x['number'])
+       
 
         # 比較チェックループ
         for i in range(1, 5):
@@ -177,7 +183,7 @@ class TrumpGame:
         if straight_flag == True and flash_flag == True:
             if cards[0]['number'] == 1 and cards[4]['number'] == 13:
                 # ロイヤルストレートフラッシュ
-                hand = 'ロイヤル\nストレートフラッシュ'
+                hand = 700
         elif match_number > 2:
             if match_number == 4:
                 # 4カード
@@ -188,10 +194,11 @@ class TrumpGame:
                     hand = 500
                 else:
                     # 3カード
-                    hand = 400
+                    hand = 300
+
         elif straight_flag == True:
             # ストレート
-            hand = 300
+            hand = 400
         elif pair_count > 0:
             if pair_count > 1:
                 # 2ペア
@@ -203,14 +210,15 @@ class TrumpGame:
             # なし
             hand = 0
 
-        return hand
 
+        return hand 
+
+    
 if __name__ == '__main__':
     tg = TrumpGame()
-
+   
     tg.reset_draw_cards(5)
-
-
+   
     print("プレイヤー　ハンド")
     for card in tg.draw_cards:
         print(card['string'])
@@ -225,4 +233,7 @@ if __name__ == '__main__':
     if tg.check_poker_hand()<tg.check_poker_hand2():
         print("プレヤーの勝ち")
     else:
-        print("プレイヤーの負け")
+        print("プレイヤーの負け")    
+
+    for card in tg.card_list: #tg.card_listは残りのデッキ数
+        print(card['string'])
