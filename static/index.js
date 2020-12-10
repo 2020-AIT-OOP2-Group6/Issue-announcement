@@ -1,5 +1,5 @@
 // ホーム画面にランキングを表示させる
-fetch("/").then(response => {
+fetch("/name").then(response => {
     console.log(response);
     response.json().then((data) => {
         console.log(data);  // 取得されたレスポンスデータをデバッグ表示
