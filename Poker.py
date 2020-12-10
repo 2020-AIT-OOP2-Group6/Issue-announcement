@@ -41,8 +41,8 @@ class TrumpGame:
         card_list = self.make_card_list()
 
         self.shuffle()
-        self.draw_cards = []
-        self.draw_cards2 = []
+        self.draw_cards = []　　#自分ハンド
+        self.draw_cards2 = []　 #的ハンド
 
         for i in range(0, number):
             self.draw_cards.append(
@@ -52,10 +52,12 @@ class TrumpGame:
             self.draw_cards2.append(
                 self.card_list.pop(0)
             )
+            
+
 
 
     # 役のチェック処理
-    def check_poker_hand(self):
+    def check_poker_hand(self): #(tg)
         # ペア数
         pair_count = 0
         # 同じ数字のカウント
@@ -230,3 +232,6 @@ if __name__ == '__main__':
         print("プレヤーの勝ち")
     else:
         print("プレイヤーの負け")    
+
+    for card in tg.card_list:
+        print(card['string'])
