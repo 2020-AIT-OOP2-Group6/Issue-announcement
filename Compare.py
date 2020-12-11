@@ -13,7 +13,7 @@ class CompareHand:#(coh)
         straight_flag = True
 
         # 数字の昇順に並び替える
-        cards = sorted(self.draw_cards, key=lambda x: x['number'])
+        cards = sorted(draw_cards, key=lambda x: x['number'])
         #jockerの有無を判定
         if cards[0]['number'] == 0:
             # 比較チェックループ
@@ -153,7 +153,7 @@ class CompareHand:#(coh)
         straight_flag = True
 
         # 数字の昇順に並び替える
-        cards = sorted(self.draw_cards2, key=lambda x: x['number'])
+        cards = sorted(draw_cards2, key=lambda x: x['number'])
         #jockerの有無を判定
 
         if cards[0]['number'] == 0:
