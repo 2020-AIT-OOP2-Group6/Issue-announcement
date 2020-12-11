@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 def check_poker_hand(self):
     # ペア数
     pair_count = 0
