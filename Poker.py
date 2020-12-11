@@ -55,8 +55,6 @@ class TrumpGame:
             )
         
 
-
-
     # 役のチェック処理
     def check_poker_hand(self): #(tg)
         # ペア数
