@@ -41,11 +41,13 @@ class TrumpGame:
     def reset_draw_cards(self):
         card_list = self.make_card_list()
 
+        number = 5
+
         self.shuffle()
         self.draw_cards = []
         self.draw_cards2 = []
 
-        for i in range(0):
+        for i in range(0, number):
             self.draw_cards.append(
                 self.card_list.pop(0)
             )
@@ -55,9 +57,10 @@ class TrumpGame:
                 self.card_list.pop(0)
             )
 
-        print(self.card_list)
+        return(self.draw_cards, self.draw_cards2, self.card_list)
 
     # 役のチェック処理
+
     def check_poker_hand(self):  # (tg)
         # ペア数
         pair_count = 0
@@ -214,7 +217,7 @@ class TrumpGame:
 if __name__ == '__main__':
     tg = TrumpGame()
 
-    tg.reset_draw_cards(5)
+    tg.reset_draw_cards()
 
     print("プレイヤー　ハンド")
     for card in tg.draw_cards:

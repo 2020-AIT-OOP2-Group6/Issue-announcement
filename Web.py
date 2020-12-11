@@ -35,7 +35,12 @@ def index():
 def play():
     pname = request.form['pname']
 
-    hand_list = hand_class.make_card_list()
+    hand_list, Opponent_list, Deck_list = hand_class.reset_draw_cards()
+
+    handstring = [d.get('string')for d in hand_list]
+    oppostring = [d.get('string')for d in Opponent_list]
+    Deck_list=[d.get('string')for d in Deck_list]
+
 
     return render_template("game.html", pname=pname)
 
