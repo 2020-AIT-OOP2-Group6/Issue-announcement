@@ -14,10 +14,9 @@
             <button type="button">リタイヤ</button>
         </div>
     </a>
-    <section>
-        <figure>
-            com
-        </figure>
+    <div class="top">com</div>
+    
+    <section class="com_card">
         <figure>
             <img src="{{ url_for('static', filename='card_back.png')}}" width="100px">
         </figure>
@@ -34,7 +33,32 @@
             <img src="{{ url_for('static', filename='card_back.png')}}" width="100px">
         </figure>
     </section>
+    <section class="player_card">
+        <figure>
+            <img src="{{ url_for('static', filename='card_back.png')}}" width="100px">
+        </figure>
+        <figure>
+            <img src="{{ url_for('static', filename='card_back.png')}}" width="100px">
+        </figure>
+        <figure>
+            <img src="{{ url_for('static', filename='card_back.png')}}" width="100px">
+        </figure>
+        <figure>
+            <img src="{{ url_for('static', filename='card_back.png')}}" width="100px">
+        </figure>
+        <figure>
+            <img src="{{ url_for('static', filename='card_back.png')}}" width="100px">
+        </figure>
+    </section>
+    <div class="foot">
 
-    {{ pname }}
+        {{pname}}
+    
+        <div class="two-button">
+    
+            <input class="button" type="button" value="勝負">
+            <input class="button" type="button" value="カード交換">
+        </div>
+    </div>
 </body>
 </html>
