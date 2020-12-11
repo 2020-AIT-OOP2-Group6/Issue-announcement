@@ -11,6 +11,7 @@ from flask import send_from_directory, render_template, jsonify
 
 # 別ファイルのimport
 from app.name import module_api
+# from app.play import module_play
 
 
 import json
@@ -30,6 +31,7 @@ def play():
     pname = request.form['pname']
 
     return render_template("game.html", pname=pname)
+
 
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す
