@@ -11,7 +11,7 @@ from flask import send_from_directory, render_template, jsonify
 
 # 別ファイルのimport
 from app.name import module_api
-from app.play import module_play
+# from app.play import module_play
 
 
 import json
@@ -24,6 +24,11 @@ app.register_blueprint(module_api)
 @app.route('/')
 def index():
     return render_template("index.html")
+
+@app.route('/play', method=['POST'])
+def play():
+    pname = request.form['pname']
+    return render_template("game.html",pname=pname)
 
 
 if __name__ == "__main__":
