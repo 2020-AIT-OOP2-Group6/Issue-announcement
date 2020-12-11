@@ -1,6 +1,6 @@
 import random
 
-
+#手札を作るところまでここでやります
 class TrumpGame:
     def make_card_list(self):
         # マークのリスト
@@ -53,7 +53,8 @@ class TrumpGame:
             self.draw_cards2.append(
                 self.card_list.pop(0)
             )
-        
+
+     
 
 
 
