@@ -28,6 +28,11 @@ class TrumpGame:
                     
                 # カードをリストに追加
                 card_list.append(card)
+        # jocker = {
+        #             'number': 0,
+        #             'symbol': jocker
+        #         }
+        # card_list.append(jocker)
 
         self.card_list = card_list
 
@@ -49,10 +54,11 @@ class TrumpGame:
                 self.card_list.pop(0)
             )
 
-        for i in range(5, number+5):
+        for i in range(0, number):
             self.draw_cards2.append(
                 self.card_list.pop(0)
             )
+
 
      
 
@@ -229,8 +235,8 @@ if __name__ == '__main__':
         print(card['string'])
     print(tg.check_poker_hand2())
 
-    if tg.check_poker_hand()<tg.check_poker_hand2():
-        print("プレヤーの勝ち")
+    if tg.check_poker_hand()>tg.check_poker_hand2():
+        print("プレイヤーの勝ち")
     else:
         print("プレイヤーの負け")    
 
