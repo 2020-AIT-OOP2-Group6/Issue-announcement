@@ -11,9 +11,6 @@ from flask import send_from_directory, render_template
 
 app = Flask(__name__)
 
-
-
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す
     app.run(debug=True)
-    
