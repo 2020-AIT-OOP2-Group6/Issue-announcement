@@ -25,7 +25,7 @@ app.register_blueprint(module_api)
 def index():
     return render_template("index.html")
 
-@app.route('/play', method=['POST'])
+@app.route('/play', methods=['POST'])
 def play():
     pname = request.form['pname']
     return render_template("game.html",pname=pname)
