@@ -28,16 +28,20 @@ class TrumpGame:
                     
                 # カードをリストに追加
                 card_list.append(card)
+        
 
         self.card_list = card_list
+        
 
     def shuffle(self):
         # カードをシャッフルする
         random.shuffle(self.card_list)
 
     # 手札を作成する
-    def reset_draw_cards(self, number):
+    def reset_draw_cards(self):
         card_list = self.make_card_list()
+
+        number = 5
 
         self.shuffle()
         self.draw_cards = []
@@ -53,7 +57,8 @@ class TrumpGame:
             self.draw_cards2.append(
                 self.card_list.pop(0)
             )
-
+        print(self.draw_cards)
+        
      
 
 
@@ -217,8 +222,8 @@ class TrumpGame:
     
 if __name__ == '__main__':
     tg = TrumpGame()
-   
-    tg.reset_draw_cards(5)
+    
+    tg.reset_draw_cards()
    
     print("プレイヤー　ハンド")
     for card in tg.draw_cards:
