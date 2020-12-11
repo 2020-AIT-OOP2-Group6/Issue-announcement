@@ -13,12 +13,17 @@ from flask import send_from_directory, render_template, jsonify
 from app.name import module_api
 # from app.play import module_play
 
-
+import Chenge
+import Poker
 import json
 
 app = Flask(__name__)
 
 app.register_blueprint(module_api)
+
+# インスタンス
+chenge_class = Chenge.ChangeHand()
+hand_class = Poker.TrumpGame()
 
 
 @app.route('/')
@@ -29,6 +34,8 @@ def index():
 @app.route('/play', methods=['POST'])
 def play():
     pname = request.form['pname']
+
+    hand_list = hand_class.make_card_list()
 
     return render_template("game.html", pname=pname)
 

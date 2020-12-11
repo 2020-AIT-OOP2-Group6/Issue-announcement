@@ -1,6 +1,8 @@
 import random
 
-#手札を作るところまでここでやります
+# 手札を作るところまでここでやります
+
+
 class TrumpGame:
     def make_card_list(self):
         # マークのリスト
@@ -25,7 +27,7 @@ class TrumpGame:
                     card['string'] = symbol + 'Q'
                 elif number == 4:
                     card['string'] = symbol + 'K'
-                    
+
                 # カードをリストに追加
                 card_list.append(card)
 
@@ -36,15 +38,14 @@ class TrumpGame:
         random.shuffle(self.card_list)
 
     # 手札を作成する
-    def reset_draw_cards(self, number):
+    def reset_draw_cards(self):
         card_list = self.make_card_list()
 
         self.shuffle()
         self.draw_cards = []
         self.draw_cards2 = []
-        
-        
-        for i in range(0, number):
+
+        for i in range(0):
             self.draw_cards.append(
                 self.card_list.pop(0)
             )
@@ -54,10 +55,10 @@ class TrumpGame:
                 self.card_list.pop(0)
             )
 
-     
+        print(self.card_list)
 
     # 役のチェック処理
-    def check_poker_hand(self): #(tg)
+    def check_poker_hand(self):  # (tg)
         # ペア数
         pair_count = 0
         # 同じ数字のカウント
@@ -71,7 +72,6 @@ class TrumpGame:
 
         # 数字の昇順に並び替える
         cards = sorted(self.draw_cards, key=lambda x: x['number'])
-       
 
         # 比較チェックループ
         for i in range(1, 5):
@@ -131,7 +131,7 @@ class TrumpGame:
             # なし
             hand = 0
 
-        return hand 
+        return hand
 
         # 役のチェック処理
     def check_poker_hand2(self):
@@ -148,7 +148,6 @@ class TrumpGame:
 
         # 数字の昇順に並び替える
         cards = sorted(self.draw_cards2, key=lambda x: x['number'])
-       
 
         # 比較チェックループ
         for i in range(1, 5):
@@ -209,30 +208,28 @@ class TrumpGame:
             # なし
             hand = 0
 
+        return hand
 
-        return hand 
 
-    
 if __name__ == '__main__':
     tg = TrumpGame()
-   
+
     tg.reset_draw_cards(5)
-   
+
     print("プレイヤー　ハンド")
     for card in tg.draw_cards:
         print(card['string'])
     print(tg.check_poker_hand())
-
 
     print("敵　ハンド")
     for card in tg.draw_cards2:
         print(card['string'])
     print(tg.check_poker_hand2())
 
-    if tg.check_poker_hand()<tg.check_poker_hand2():
+    if tg.check_poker_hand() < tg.check_poker_hand2():
         print("プレヤーの勝ち")
     else:
-        print("プレイヤーの負け")    
+        print("プレイヤーの負け")
 
-    for card in tg.card_list: #tg.card_listは残りのデッキ数
+    for card in tg.card_list:  # tg.card_listは残りのデッキ数
         print(card['string'])
