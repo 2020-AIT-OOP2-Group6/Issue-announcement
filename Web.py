@@ -11,7 +11,8 @@ from flask import send_from_directory, render_template, jsonify
 
 # 別ファイルのimport
 from app.name import module_api
-from app.play import module_api
+from app.play import module_play
+
 
 import json
 

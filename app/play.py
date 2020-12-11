@@ -9,9 +9,9 @@ from flask import send_from_directory, render_template, jsonify
 import json
 
 
-module_api = Blueprint('play', __name__)    
+module_play = Blueprint('play', __name__)
 
 
-@module_api.route("/play")
+@module_play.route("/play")
 def play():
-
+    print('hello')

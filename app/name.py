@@ -10,6 +10,7 @@ import json
 
 module_api = Blueprint('name', __name__)
 
+
 @module_api.route("/name")
 def name():
     with open('score.json') as f:
