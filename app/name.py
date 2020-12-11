@@ -14,6 +14,11 @@ module_api = Blueprint('name', __name__)
 @module_api.route("/name")
 def name():
     with open('score.json') as f:
+        # dict型
         json_data = json.load(f)
 
-    return jsonify(json_data)
+        # sortする
+        scores_sorted = sorted(
+            json_data, key=lambda x: x['score'], reverse=True)
+
+    return jsonify(scores_sorted)
