@@ -16,3 +16,10 @@ listyamalist = [d.get('string')for d in yamalist]
 print(liststring)
 print(listolist)
 print(listyamalist)
+
+for index, target_list in enumerate(liststring):
+
+    liststring[index] = 'static/'+target_list+'.png'
+
+    pass
+print(liststring[0])

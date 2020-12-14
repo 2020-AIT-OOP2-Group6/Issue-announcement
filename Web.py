@@ -35,15 +35,20 @@ def index():
 def play():
     pname = request.form['pname']
 
-    hand_list, Opponent_list, Deck_list = hand_class.reset_draw_cards()
+    hand_list, Opponent_list, Decklist = hand_class.reset_draw_cards()
 
     handstring = [d.get('string')for d in hand_list]
     oppostring = [d.get('string')for d in Opponent_list]
-    Deck_list=[d.get('string')for d in Deck_list]
+    Decklist = [d.get('string')for d in Decklist]
 
-
-    return render_template("game.html", pname=pname)
-
+    for index, target_list in enumerate(handstring):
+        handstring[index] = 'tranp_img/'+target_list+'.png'
+    for index, target_list in enumerate(oppostring):
+        oppostring[index] = 'tranp_img/'+target_list+'.png'
+    for index, target_list in enumerate(Decklist):
+        Decklist[index] = 'tranp_img/'+target_list+'.png'
+    
+    return render_template("game.html", pname=pname, hand1=handstring[0])
 
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す
