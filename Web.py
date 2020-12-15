@@ -46,9 +46,9 @@ def play():
     for index, target_list in enumerate(oppostring):
         oppostring[index] = 'tranp_img/'+target_list+'.png'
     for index, target_list in enumerate(Decklist):
-        Decklist[index] = 'tranp_img/'+target_list+'.png'
-    
-    return render_template("game.html", pname=pname, hand1=handstring[0])
+        Decklist[index] = 'tranp_img/' + target_list + '.png'
+
+    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4])
 
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す

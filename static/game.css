@@ -1,9 +1,13 @@
-#retire{
-    text-align: right;
+#retire {
+  text-align: right;
 }
 
 section {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.back {
+  background-image: url(../static/pokerback.jpg);
+  background-size: contain;
+}
