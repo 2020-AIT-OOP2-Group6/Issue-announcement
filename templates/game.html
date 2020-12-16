@@ -11,91 +11,70 @@
     <script defer src="{{ url_for('static', filename='index.js') }}"></script>
     <title>17poker</title>
   </head>
-  <body class="back">
-    <div>
-      <a href="http://127.0.0.1:5000/">
-        <div id="retire">
-          <button type="button">リタイヤ</button>
-        </div>
-      </a>
-      <section>
-        <div style="position: absolute; top: 220px; left: 100px">
-          <figure>
-            <font size="7"> computer </font>
-          </figure>
-        </div>
-        <figure>
-          <div style="position: absolute; top: 200px; left: 400px">
-            <img
-              src="{{ url_for('static', filename='card_back.png')}}"
-              width="100px"
-            />
-          </div>
-        </figure>
-        <figure>
-          <div style="position: absolute; top: 200px; left: 550px">
-            <img
-              src="{{ url_for('static', filename='card_back.png')}}"
-              width="100px"
-            />
-          </div>
-        </figure>
-        <figure>
-          <div style="position: absolute; top: 200px; left: 700px">
-            <img
-              src="{{ url_for('static', filename='card_back.png')}}"
-              width="100px"
-            />
-          </div>
-        </figure>
-        <figure>
-          <div style="position: absolute; top: 200px; left: 850px">
-            <img
-              src="{{ url_for('static', filename='card_back.png')}}"
-              width="100px"
-            />
-          </div>
-        </figure>
-        <figure>
-          <div style="position: absolute; top: 200px; left: 1000px">
-            <img
-              src="{{ url_for('static', filename='card_back.png')}}"
-              width="100px"
-            />
-          </div>
-        </figure>
-        <div style="position: absolute; top: 450px; left: 130px">
-          <figure>
-            <font size="7">{{pname}} </font>
-            <font size="6">さん</font>
-          </figure>
-        </div>
-        <figure>
-          <div style="position: absolute; top: 450px; left: 400px">
-            <img src="{{url_for('static',filename=hand0)}}" width="100px" />
-          </div>
-        </figure>
-        <figure>
-          <div style="position: absolute; top: 450px; left: 550px">
-            <img src="{{url_for('static',filename=hand1)}}" width="100px" />
-          </div>
-        </figure>
-        <figure>
-          <div style="position: absolute; top: 450px; left: 700px">
-            <img src="{{url_for('static',filename=hand2)}}" width="100px" />
-          </div>
-        </figure>
-        <figure>
-          <div style="position: absolute; top: 450px; left: 850px">
-            <img src="{{url_for('static',filename=hand3)}}" width="100px" />
-          </div>
-        </figure>
-        <figure>
-          <div style="position: absolute; top: 450px; left: 1000px">
-            <img src="{{url_for('static',filename=hand4)}}" width="100px" />
-          </div>
-        </figure>
-      </section>
+  <body>
+    <a href="http://127.0.0.1:5000/">
+      <div id="retire">
+        <button type="button">リタイヤ</button>
+      </div>
+    </a>
+    <div class="top">com</div>
+
+    <section class="com_card">
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+    </section>
+    <section class="player_card">
+      <figure>
+        <img src="{{url_for('static',filename=hand0)}}" width="100px" />
+      </figure>
+      <figure>
+        <img src="{{url_for('static',filename=hand1)}}" width="100px" />
+      </figure>
+      <figure>
+        <img src="{{url_for('static',filename=hand2)}}" width="100px" />
+      </figure>
+      <figure>
+        <img src="{{url_for('static',filename=hand3)}}" width="100px" />
+      </figure>
+      <figure>
+        <img src="{{url_for('static',filename=hand4)}}" width="100px" />
+      </figure>
+    </section>
+    <div class="foot">
+      {{pname}}
+
+      <div class="two-button">
+        <input class="button" type="button" value="勝負" />
+        <input class="button" type="button" value="カード交換" />
+      </div>
     </div>
   </body>
 </html>

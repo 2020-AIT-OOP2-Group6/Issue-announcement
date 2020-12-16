@@ -6,8 +6,39 @@ section {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  width: 100%;
 }
-.back {
-  background-image: url(../static/pokerback.jpg);
-  background-size: contain;
+
+figure {
+  margin: 2%;
+}
+
+.top {}
+
+.com_card {}
+
+.player_card {
+  height: 250px;
+
+}
+
+.two-button {
+  text-align: center;
+}
+
+.foot {
+  position: relative;
+}
+
+.button {
+  text-align: center;
+  width: 30%;
+  padding: 10px;
+  font-size: 30px;
+}
+
+.two-button {
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }
