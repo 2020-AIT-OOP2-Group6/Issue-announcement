@@ -57,7 +57,7 @@ class TrumpGame:
                 self.card_list.pop(0)
             )
 
-        for i in range(5, number+5):
+        for i in range(0, number):
             self.draw_cards2.append(
                 self.card_list.pop(0)
             )
