@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='game.css') }}"
+    />
+    <script defer src="{{ url_for('static', filename='index.js') }}"></script>
+    <title>17poker</title>
+  </head>
+  <body>
+    <a href="http://127.0.0.1:5000/">
+      <div id="retire">
+        <button type="button">リタイヤ</button>
+      </div>
+    </a>
+    <div class="top">com</div>
+
+    <section class="com_card">
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+      <figure>
+        <img
+          src="{{ url_for('static', filename='card_back.png')}}"
+          width="100px"
+        />
+      </figure>
+    </section>
+    <section class="player_card">
+      <figure>
+        <img src="{{url_for('static',filename=hand0)}}" width="100px" />
+      </figure>
+      <figure>
+        <img src="{{url_for('static',filename=hand1)}}" width="100px" />
+      </figure>
+      <figure>
+        <img src="{{url_for('static',filename=hand2)}}" width="100px" />
+      </figure>
+      <figure>
+        <img src="{{url_for('static',filename=hand3)}}" width="100px" />
+      </figure>
+      <figure>
+        <img src="{{url_for('static',filename=hand4)}}" width="100px" />
+      </figure>
+    </section>
+    <div class="foot">
+      {{pname}}
+
+      <div class="two-button">
+        <input class="button" type="button" value="勝負" />
+        <input class="button" type="button" value="カード交換" />
+      </div>
+    </div>
+  </body>
+</html>
