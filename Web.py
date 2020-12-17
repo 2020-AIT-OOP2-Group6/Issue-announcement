@@ -13,23 +13,42 @@ from flask import send_from_directory, render_template, jsonify
 from app.name import module_api
 # from app.play import module_play
 
-
+import Chenge
+import Poker
 import json
 
 app = Flask(__name__)
 
 app.register_blueprint(module_api)
 
+# インスタンス
+chenge_class = Chenge.ChangeHand()
+hand_class = Poker.TrumpGame()
+
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
+
 @app.route('/play', methods=['POST'])
 def play():
     pname = request.form['pname']
-    return render_template("game.html",pname=pname)
 
+    hand_list, Opponent_list, Decklist = hand_class.reset_draw_cards()
+
+    handstring = [d.get('string')for d in hand_list]
+    oppostring = [d.get('string')for d in Opponent_list]
+    Decklist = [d.get('string')for d in Decklist]
+
+    for index, target_list in enumerate(handstring):
+        handstring[index] = 'tranp_img/'+target_list+'.png'
+    for index, target_list in enumerate(oppostring):
+        oppostring[index] = 'tranp_img/'+target_list+'.png'
+    for index, target_list in enumerate(Decklist):
+        Decklist[index] = 'tranp_img/' + target_list + '.png'
+
+    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4])
 
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す

@@ -1,6 +1,6 @@
 import random
 
-
+#手札を作るところまでここでやります
 class TrumpGame:
     def make_card_list(self):
         # マークのリスト
@@ -28,16 +28,24 @@ class TrumpGame:
                     
                 # カードをリストに追加
                 card_list.append(card)
-
+        
+        card_list.append({
+                    'number': 0,
+                    'symbol': 'Joker',
+                    'string': 'Joker'
+                })
         self.card_list = card_list
+        
 
     def shuffle(self):
         # カードをシャッフルする
         random.shuffle(self.card_list)
 
     # 手札を作成する
-    def reset_draw_cards(self, number):
+    def reset_draw_cards(self):
         card_list = self.make_card_list()
+
+        number = 5
 
         self.shuffle()
         self.draw_cards = []
@@ -49,189 +57,34 @@ class TrumpGame:
                 self.card_list.pop(0)
             )
 
-        for i in range(5, number+5):
+        for i in range(0, number):
             self.draw_cards2.append(
                 self.card_list.pop(0)
             )
-        
 
-    # 役のチェック処理
-    def check_poker_hand(self): #(tg)
-        # ペア数
-        pair_count = 0
-        # 同じ数字のカウント
-        match_count = 0
-        # 同じ数字の枚数(3カード,4カードチェック用)
-        match_number = 0
-        # フラッシュの有無フラグ
-        flash_flag = True
-        # ストレートの有無フラグ
-        straight_flag = True
-
-        # 数字の昇順に並び替える
-        cards = sorted(self.draw_cards, key=lambda x: x['number'])
-       
-
-        # 比較チェックループ
-        for i in range(1, 5):
-            # 前の数字が同じかチェック
-            if cards[i]['number'] == cards[i - 1]['number']:
-                match_count += 1
-                # 最終ループチェック
-                if i == 4:
-                    if match_count == 1:
-                        pair_count += 1
-                    # 3カード以上の場合
-                    elif match_count > 1:
-                        match_number = match_count + 1
-            else:
-                # 違う数字の場合
-                if match_count == 1:
-                    pair_count += 1
-                # 3カード以上の場合
-                elif match_count > 1:
-                    match_number = match_count + 1
-                match_count = 0
-            # 同じマークが続いているかチェック
-            if flash_flag == True and cards[i]['symbol'] != cards[i - 1]['symbol']:
-                flash_flag = False
-            # 数字が連続しているかチェック
-            if straight_flag == True and cards[i]['number'] != cards[i - 1]['number'] + 1:
-                if cards[i]['number'] != 10 or cards[i - 1]['number'] != 1:
-                    straight_flag = False
-
-                # 最終手札チェック
-        if straight_flag == True and flash_flag == True:
-            if cards[0]['number'] == 1 and cards[4]['number'] == 13:
-                # ロイヤルストレートフラッシュ
-                hand = 700
-        elif match_number > 2:
-            if match_number == 4:
-                # 4カード
-                hand = 600
-            else:
-                if pair_count > 0:
-                    # フルハウス
-                    hand = 500
-                else:
-                    # 3カード
-                    hand = 300
-        elif straight_flag == True:
-            # ストレート
-            hand = 400
-        elif pair_count > 0:
-            if pair_count > 1:
-                # 2ペア
-                hand = 200
-            else:
-                # 1ペア
-                hand = 100
-        else:
-            # なし
-            hand = 0
-
-        return hand 
-
-        # 役のチェック処理
-    def check_poker_hand2(self):
-        # ペア数
-        pair_count = 0
-        # 同じ数字のカウント
-        match_count = 0
-        # 同じ数字の枚数(3カード,4カードチェック用)
-        match_number = 0
-        # フラッシュの有無フラグ
-        flash_flag = True
-        # ストレートの有無フラグ
-        straight_flag = True
-
-        # 数字の昇順に並び替える
-        cards = sorted(self.draw_cards2, key=lambda x: x['number'])
-       
-
-        # 比較チェックループ
-        for i in range(1, 5):
-            # 前の数字が同じかチェック
-            if cards[i]['number'] == cards[i - 1]['number']:
-                match_count += 1
-                # 最終ループチェック
-                if i == 4:
-                    if match_count == 1:
-                        pair_count += 1
-                    # 3カード以上の場合
-                    elif match_count > 1:
-                        match_number = match_count + 1
-            else:
-                # 違う数字の場合
-                if match_count == 1:
-                    pair_count += 1
-                # 3カード以上の場合
-                elif match_count > 1:
-                    match_number = match_count + 1
-                match_count = 0
-            # 同じマークが続いているかチェック
-            if flash_flag == True and cards[i]['symbol'] != cards[i - 1]['symbol']:
-                flash_flag = False
-            # 数字が連続しているかチェック
-            if straight_flag == True and cards[i]['number'] != cards[i - 1]['number'] + 1:
-                if cards[i]['number'] != 10 or cards[i - 1]['number'] != 1:
-                    straight_flag = False
-
-                # 最終手札チェック
-        if straight_flag == True and flash_flag == True:
-            if cards[0]['number'] == 1 and cards[4]['number'] == 13:
-                # ロイヤルストレートフラッシュ
-                hand = 700
-        elif match_number > 2:
-            if match_number == 4:
-                # 4カード
-                hand = 600
-            else:
-                if pair_count > 0:
-                    # フルハウス
-                    hand = 500
-                else:
-                    # 3カード
-                    hand = 300
-
-        elif straight_flag == True:
-            # ストレート
-            hand = 400
-        elif pair_count > 0:
-            if pair_count > 1:
-                # 2ペア
-                hand = 200
-            else:
-                # 1ペア
-                hand = 100
-        else:
-            # なし
-            hand = 0
-
-
-        return hand 
+        # print(self.draw_cards)
+        return self.draw_cards,self.draw_cards2,self.card_list
 
     
 if __name__ == '__main__':
     tg = TrumpGame()
-   
-    tg.reset_draw_cards(5)
+    cnt = 0
+    draw_cards,draw_cards2,deck = tg.reset_draw_cards()
    
     print("プレイヤー　ハンド")
-    for card in tg.draw_cards:
+    for card in draw_cards:
+        cnt += 1
         print(card['string'])
-    print(tg.check_poker_hand())
-
+    print(cnt)
 
     print("敵　ハンド")
-    for card in tg.draw_cards2:
+    for card in draw_cards2:
+        cnt += 1
         print(card['string'])
-    print(tg.check_poker_hand2())
+    print(cnt)
 
-    if tg.check_poker_hand()<tg.check_poker_hand2():
-        print("プレヤーの勝ち")
-    else:
-        print("プレイヤーの負け")    
-
-    for card in tg.card_list: #tg.card_listは残りのデッキ数
+    print("デッキ")
+    for card in deck: #tg.card_listは残りのデッキ数
+        cnt += 1
         print(card['string'])
+    print(cnt)

@@ -1,8 +1,25 @@
+import Poker
 
 
-scores = [{'player_name': 'suzuki tarou', 'score': 1500}, {'player_name': 'tanaka zirou',
-                                                           'score': 1800}, {'player_name': 'yamaguti kakeru', 'score': 1300}]
-scores_sorted = sorted(scores, key=lambda x: x['score'], reverse=True)
+hand_class = Poker.TrumpGame()
 
+slist, olist, yamalist = hand_class.reset_draw_cards()
+print(list)
+print(type(list))
+print(olist)
+print(type(olist))
 
-print(scores_sorted)
+liststring = [d.get('string')for d in slist]
+listolist = [d.get('string')for d in olist]
+listyamalist = [d.get('string')for d in yamalist]
+
+print(liststring)
+print(listolist)
+print(listyamalist)
+
+for index, target_list in enumerate(liststring):
+
+    liststring[index] = 'static/'+target_list+'.png'
+
+    pass
+print(liststring[0])
