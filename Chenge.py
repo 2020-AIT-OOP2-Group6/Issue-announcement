@@ -49,9 +49,7 @@ class ChangeHand:
 if __name__ == '__main__':
 
     mh = ChangeHand()
-    #mh.receive_my_hand([1,2,3,4,5],[6,7,8,9] , 2 ,None,None)
-    #mh.receive_my_hand([1,2,3,4,5],[6,7,8,9] , 2 ,3,None)
-
+    
     #実際に渡される配列を想定して引数を渡してみる
 
     #club Q, heart Q, heart A, spade Q, diamond Q
