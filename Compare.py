@@ -183,12 +183,11 @@ class CompareHand:#(coh)
 if __name__ == "__main__":
     coh = CompareHand()
     check_1 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 0, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
-    #check_2 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
+    check_2 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
     hand1 = coh.check_poker_hand(check_1)
-    #hand2 = coh.check_poker_hand(check_2)
+    hand2 = coh.check_poker_hand(check_2)
     print(hand1)#Jあり
-    #print(hand2)#Jなし
+    print(hand2)#Jなし
     print(coh.check_high_number(check_1, hand1))
-    #print(coh.check_high_number(check_2, hand2))
-
+    print(coh.check_high_number(check_2, hand2))
 
