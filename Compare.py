@@ -146,4 +146,4 @@ if __name__ == "__main__":
     check_1 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 0, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
     check_2 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 0, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
     print(coh.check_poker_hand(check_1))
-    print(coh.check_poker_hand2(check_2))
+    print(coh.check_poker_hand(check_2))
