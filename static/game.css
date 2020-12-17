@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+
 #retire {
   text-align: right;
 }
@@ -13,9 +20,11 @@ figure {
   margin: 2%;
 }
 
-.top {}
+.top {
+    text-align: left;
+}
 
-.com_card {}
+/* .com_card {} */
 
 .player_card {
   height: 250px;
@@ -27,7 +36,7 @@ figure {
 }
 
 .foot {
-  position: relative;
+  text-align: left;
 }
 
 .button {
@@ -38,7 +47,6 @@ figure {
 }
 
 .two-button {
-  position: absolute;
   top: 0px;
   width: 100%;
 }
