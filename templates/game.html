@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='game.css') }}"
     />
+    <script defer src="{{ url_for('static', filename='game.js') }}"></script>
     
     <script defer src="{{ url_for('static', filename='index.js') }}"></script>
     <title>17poker</title>
@@ -58,27 +59,27 @@
     </section>
     <section class="player_card">
       <figure>
-        <img src="{{url_for('static',filename=hand0)}}" width="100px" />
+        <img id="hand00" src="{{url_for('static',filename=hand0)}}" width="100px" />
       </figure>
       <figure>
-        <img src="{{url_for('static',filename=hand1)}}" width="100px" />
+        <img id="hand01" src="{{url_for('static',filename=hand1)}}" width="100px" />
       </figure>
       <figure>
-        <img src="{{url_for('static',filename=hand2)}}" width="100px" />
+        <img id="hand02" src="{{url_for('static',filename=hand2)}}" width="100px" />
       </figure>
       <figure>
-        <img src="{{url_for('static',filename=hand3)}}" width="100px" />
+        <img id="hand03" src="{{url_for('static',filename=hand3)}}" width="100px" />
       </figure>
       <figure>
-        <img src="{{url_for('static',filename=hand4)}}" width="100px" />
+        <img id="hand04" src="{{url_for('static',filename=hand4)}}" width="100px" />
       </figure>
     </section>
     <div class="foot">
       {{pname}}
 
       <div class="two-button">
-        <input class="btn btn-primary" type="button" role="button" value="勝負" />
-        <input class="btn btn-primary" type="button" role="button" value="カード交換" />
+        <input id="battle" class="btn btn-primary btn-lg" type="button" role="button" value="勝負" />
+        <input id="card_change" class="btn btn-primary btn-lg" type="button" role="button" value="カード交換" />
       </div>
     </div>
   </body>

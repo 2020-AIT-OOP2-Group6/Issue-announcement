@@ -49,4 +49,29 @@ figure {
 .two-button {
   top: 0px;
   width: 100%;
+  
+}
+
+#battle{
+    margin: 10px;
+}
+
+#card_change{
+    margin: 10px;
+}
+
+#hand00.active{
+    margin-bottom: 20px;
+}
+#hand01.active{
+    margin-bottom: 20px;
+}
+#hand02.active{
+    margin-bottom: 20px;
+}
+#hand03.active{
+    margin-bottom: 20px;
+}
+#hand04.active{
+    margin-bottom: 20px;
 }
