@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import statistics
 class CompareHand:#(coh)
     #役のチェック処理
@@ -193,5 +191,3 @@ if __name__ == "__main__":
     print(hand2)#Jなし
     print(coh.check_high_number(check_1, hand1))
     print(coh.check_high_number(check_2, hand2))
-
->>>>>>> Stashed changes
