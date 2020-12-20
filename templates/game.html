@@ -24,48 +24,73 @@
         <img
           src="{{ url_for('static', filename='card_back.png')}}"
           width="100px"
+          class="com_card"
         />
       </figure>
       <figure>
         <img
           src="{{ url_for('static', filename='card_back.png')}}"
           width="100px"
+          class="com_card"
         />
       </figure>
       <figure>
         <img
           src="{{ url_for('static', filename='card_back.png')}}"
           width="100px"
+          class="com_card"
         />
       </figure>
       <figure>
         <img
           src="{{ url_for('static', filename='card_back.png')}}"
           width="100px"
+          class="com_card"
         />
       </figure>
       <figure>
         <img
           src="{{ url_for('static', filename='card_back.png')}}"
           width="100px"
+          class="com_card"
         />
       </figure>
     </section>
     <section class="player_card">
       <figure>
-        <img src="{{url_for('static',filename=hand0)}}" width="100px" />
+        <img
+          src="{{url_for('static',filename=hand0)}}"
+          width="100px"
+          class="play_card"
+        />
       </figure>
       <figure>
-        <img src="{{url_for('static',filename=hand1)}}" width="100px" />
+        <img
+          src="{{url_for('static',filename=hand1)}}"
+          width="100px"
+          class="play_card"
+        />
       </figure>
       <figure>
-        <img src="{{url_for('static',filename=hand2)}}" width="100px" />
+        <img
+          src="{{url_for('static',filename=hand2)}}"
+          width="100px"
+          class="play_card"
+        />
       </figure>
       <figure>
-        <img src="{{url_for('static',filename=hand3)}}" width="100px" />
+        <img
+          src="{{url_for('static',filename=hand3)}}"
+          width="100px"
+          class="play_card"
+        />
       </figure>
       <figure>
-        <img src="{{url_for('static',filename=hand4)}}" width="100px" />
+        <img
+          src="{{url_for('static',filename=hand4)}}"
+          width="100px"
+          class="play_card"
+        />
       </figure>
     </section>
     <div class="foot">
@@ -77,4 +102,15 @@
       </div>
     </div>
   </body>
+  <script>
+    var play_card = document.getElementsByClassName("play_card");
+    for (let index = 0; index < play_card.length; index++) {
+      console.log(play_card[index].getAttribute("src"));
+    }
+    var com_card = document.getElementsByClassName("com_card");
+    for (let index = 0; index < com_card.length; index++) {
+      console.log(com_card[index].getAttribute("src"));
+    }
+    
+  </script>
 </html>
