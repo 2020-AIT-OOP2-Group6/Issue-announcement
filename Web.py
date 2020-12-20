@@ -50,6 +50,19 @@ def play():
 
     return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4])
 
+
+@app.route('/battle', methods=['GET'])
+def battle():
+
+    hand0 = request.args.get('hand0', None)
+    hand1 = request.args.get('hand1', None)
+    hand2 = request.args.get('hand2', None)
+    hand3 = request.args.get('hand3', None)
+    hand4 = request.args.get('hand4', None)
+
+    return hand0+hand1+hand2+hand3+hand4
+
+
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す
     app.run(debug=True)
