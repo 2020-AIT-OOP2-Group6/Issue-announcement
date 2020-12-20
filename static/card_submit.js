@@ -12,6 +12,7 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       "&hand4=" +
       document.getElementsByClassName("play_card")[4].getAttribute("src")
   ).then((Response) => {
-    console.log(Response);
+    
+
   });
 });

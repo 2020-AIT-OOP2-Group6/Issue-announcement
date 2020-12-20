@@ -16,7 +16,6 @@ function choose_card() {
       count = count - 1;
     }
   };
-
   document.getElementById("hand01").onclick = function () {
     hand01 = document.getElementById("hand01");
     if (count < 3) {
@@ -82,8 +81,8 @@ function choose_card() {
   };
 }
 
+console.log("hello");
+/* 
 document.getElementById("#card_change").onclick = function () {};
 
-choose_card();
-
-
+choose_card(); */

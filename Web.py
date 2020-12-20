@@ -60,7 +60,11 @@ def battle():
     hand3 = request.args.get('hand3', None)
     hand4 = request.args.get('hand4', None)
 
-    return hand0+hand1+hand2+hand3+hand4
+    
+
+
+
+    return 
 
 
 if __name__ == "__main__":
