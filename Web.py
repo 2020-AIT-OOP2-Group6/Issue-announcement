@@ -73,7 +73,8 @@ def battle():
         hand_dictionary.append(Type_Adjust.Adjust(hand))
         pass
 
-    print(coh.check_poker_hand(hand_dictionary))
+    hand_score = coh.check_poker_hand(hand_dictionary)
+    print('hand'+str(hand_score))
 
     # 相手の手札のリスト
     ophand_list = []
@@ -89,9 +90,10 @@ def battle():
         ophand_dictionary.append(Type_Adjust.Adjust(ophand))
         pass
 
-    print(coh.check_poker_hand(ophand_dictionary))
+    ophand_score = coh.check_poker_hand(ophand_dictionary)
+    print('op'+str(ophand_score))
 
-    return 
+    return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score})
 
 
 if __name__ == "__main__":
