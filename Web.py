@@ -16,6 +16,8 @@ from app.name import module_api
 import Chenge
 import Poker
 import json
+import Type_Adjust
+import Compare
 
 app = Flask(__name__)
 
@@ -48,21 +50,46 @@ def play():
     for index, target_list in enumerate(Decklist):
         Decklist[index] = 'tranp_img/' + target_list + '.png'
 
-    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4])
+    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4])
 
 
 @app.route('/battle', methods=['GET'])
 def battle():
+    # 外部クラスのインスタンス
+    coh = Compare.CompareHand()
 
-    hand0 = request.args.get('hand0', None)
-    hand1 = request.args.get('hand1', None)
-    hand2 = request.args.get('hand2', None)
-    hand3 = request.args.get('hand3', None)
-    hand4 = request.args.get('hand4', None)
+    # 自分の手札のリスト
+    hand_list = []
 
-    
+    hand_list.append(request.args.get('hand0', None))
+    hand_list.append(request.args.get('hand1', None))
+    hand_list.append(request.args.get('hand2', None))
+    hand_list.append(request.args.get('hand3', None))
+    hand_list.append(request.args.get('hand4', None))
 
+    # 関数を呼び出せる形にするためのリスト
+    hand_dictionary = []
+    for hand in hand_list:
+        hand_dictionary.append(Type_Adjust.Adjust(hand))
+        pass
 
+    print(coh.check_poker_hand(hand_dictionary))
+
+    # 相手の手札のリスト
+    ophand_list = []
+
+    ophand_list.append(request.args.get('ophand0', None))
+    ophand_list.append(request.args.get('ophand1', None))
+    ophand_list.append(request.args.get('ophand2', None))
+    ophand_list.append(request.args.get('ophand3', None))
+    ophand_list.append(request.args.get('ophand4', None))
+
+    ophand_dictionary = []
+    for ophand in ophand_list:
+        ophand_dictionary.append(Type_Adjust.Adjust(ophand))
+        pass
+
+    print(coh.check_poker_hand(ophand_dictionary))
 
     return 
 
