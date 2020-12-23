@@ -12,15 +12,15 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       "&hand4=" +
       document.getElementById("hand04").getAttribute("src") +
       "&ophand0=" +
-      document.getElementsByClassName("com_card")[0].getAttribute("name") +
-      "&ophand1=" +
       document.getElementsByClassName("com_card")[1].getAttribute("name") +
-      "&ophand2=" +
+      "&ophand1=" +
       document.getElementsByClassName("com_card")[2].getAttribute("name") +
-      "&ophand3=" +
+      "&ophand2=" +
       document.getElementsByClassName("com_card")[3].getAttribute("name") +
+      "&ophand3=" +
+      document.getElementsByClassName("com_card")[4].getAttribute("name") +
       "&ophand4=" +
-      document.getElementsByClassName("com_card")[4].getAttribute("name")
+      document.getElementsByClassName("com_card")[5].getAttribute("name")
   ).then((Response) => {
     console.log(Response);
     Response.json().then((data) => {
