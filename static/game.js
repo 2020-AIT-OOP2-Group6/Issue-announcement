@@ -3,6 +3,8 @@ function choose_card() {
 
   document.getElementById("hand00").onclick = function () {
     hand00 = document.getElementById("hand00");
+    console.log(count);
+    console.log(hand00.className);
     if (count < 3) {
       if (hand00.className == null || hand00.className == "") {
         hand00.className = "active";
@@ -18,6 +20,7 @@ function choose_card() {
   };
   document.getElementById("hand01").onclick = function () {
     hand01 = document.getElementById("hand01");
+    console.log(count);
     if (count < 3) {
       if (hand01.className == null || hand01.className == "") {
         hand01.className = "active";
@@ -34,6 +37,7 @@ function choose_card() {
 
   document.getElementById("hand00").onclick = function () {
     hand00 = document.getElementById("hand00");
+    console.log(count);
     if (count < 3) {
       if (hand00.className == null || hand00.className == "") {
         hand00.className = "active";
@@ -50,6 +54,7 @@ function choose_card() {
 
   document.getElementById("hand01").onclick = function () {
     hand01 = document.getElementById("hand01");
+    console.log(count);
     if (count < 3) {
       if (hand01.className == null || hand01.className == "") {
         hand01.className = "active";
@@ -66,6 +71,7 @@ function choose_card() {
 
   document.getElementById("hand02").onclick = function () {
     hand02 = document.getElementById("hand02");
+    console.log(count);
     if (count < 3) {
       if (hand02.className == null || hand02.className == "") {
         hand02.className = "active";
@@ -82,6 +88,7 @@ function choose_card() {
 
   document.getElementById("hand03").onclick = function () {
     hand03 = document.getElementById("hand03");
+    console.log(count);
     if (count < 3) {
       if (hand03.className == null || hand03.className == "") {
         hand03.className = "active";
@@ -98,6 +105,7 @@ function choose_card() {
 
   document.getElementById("hand04").onclick = function () {
     hand04 = document.getElementById("hand04");
+    console.log(count);
     if (count < 3) {
       if (hand04.className == null || hand04.className == "") {
         hand04.className = "active";
