@@ -32,6 +32,7 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       var handscore = document.getElementById("play_score");
       console.log(handscore);
       handscore.innerHTML = "<h1>player score:" + data[0].hand_score + "</h1>";
+      
 
       var ophandscore = document.getElementById("com_score");
       console.log(ophandscore);

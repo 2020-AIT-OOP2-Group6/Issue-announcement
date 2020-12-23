@@ -61,7 +61,5 @@ def Adjust(card_stringlong):
         card_short['symbol'] = 'Joker'
         card_short['number'] = 0
         card_short['string'] = 'Joker'
-
     # print(card_short)
-
     return card_short
