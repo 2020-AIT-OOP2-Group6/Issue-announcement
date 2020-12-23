@@ -20,11 +20,11 @@ class TrumpGame:
                 if number == 1:
                     card['string'] = symbol + 'A'
                 elif number == 2:
-                    card['string'] = symbol + 'J'
+                    card['string'] = symbol + 'K'
                 elif number == 3:
                     card['string'] = symbol + 'Q'
                 elif number == 4:
-                    card['string'] = symbol + 'K'
+                    card['string'] = symbol + 'J'
                     
                 # カードをリストに追加
                 card_list.append(card)
@@ -43,7 +43,7 @@ class TrumpGame:
 
     # 手札を作成する
     def reset_draw_cards(self):
-        card_list = self.make_card_list()
+        self.make_card_list()
 
         number = 5
 
@@ -62,7 +62,10 @@ class TrumpGame:
                 self.card_list.pop(0)
             )
 
-        # print(self.draw_cards)
+        # 数字の昇順に並び替える
+        self.draw_cards = sorted(self.draw_cards, key=lambda x: x['number'])
+        self.draw_cards2 = sorted(self.draw_cards2, key=lambda x: x['number'])
+        print(self.draw_cards)
         return self.draw_cards,self.draw_cards2,self.card_list
 
     
@@ -74,17 +77,17 @@ if __name__ == '__main__':
     print("プレイヤー　ハンド")
     for card in draw_cards:
         cnt += 1
-        print(card['string'])
+    print([d.get('string') for d in draw_cards])
     print(cnt)
 
     print("敵　ハンド")
     for card in draw_cards2:
         cnt += 1
-        print(card['string'])
+    print([d.get('string') for d in draw_cards2])
     print(cnt)
 
     print("デッキ")
     for card in deck: #tg.card_listは残りのデッキ数
         cnt += 1
-        print(card['string'])
+    print([d.get('string') for d in deck])
     print(cnt)
