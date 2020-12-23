@@ -1,18 +1,50 @@
-// function result_show(){
-//     result.className = gameset;
-// }
+function result_show(){
+    result.className = "gemeset";
+}
 
-// document.getElementById("battle").onclick = function() {
-//     alert(a);
-//     //comの手札開示
-//     // document.getElementById("com00").src = static/tranp_img/ClubsA.png;
-//     // document.getElementById("com01").src = tmp;
-//     // document.getElementById("com02").src = tmp;
-//     // document.getElementById("com03").src = tmp;
-//     // document.getElementById("com04").src = tmp;
+function turn_front(){
+    // 次のカード手札
+    // document.getElementById("hand00").src =　tmp;
+    // document.getElementById("hand01").src =　tmp;
+    // document.getElementById("hand02").src =　tmp;
+    // document.getElementById("hand03").src =　tmp;
+    // document.getElementById("hand04").src =　tmp;
+}
 
-//     // setTimeout(result_show, 1000);
-// };
+function reset(){
+    result.className = "hidden"
+    document.getElementById("hand00").src =　"static/card_back.png";
+    document.getElementById("hand01").src =　"static/card_back.png";
+    document.getElementById("hand02").src =　"static/card_back.png";
+    document.getElementById("hand03").src =　"static/card_back.png";
+    document.getElementById("hand04").src =　"static/card_back.png";
+    setTimeout(turn_front,1000);
+    document.getElementById('card_change').disabled = false;
+    document.getElementById('battle').disabled = false;
+}
+
+function battle(){
+    let gamecount = 0;
+
+    document.getElementById("battle").onclick = function() {
+        document.getElementById('card_change').disabled = true;
+        document.getElementById('battle').disabled = true;
+        className_normal()
+        //comの手札開示
+        // document.getElementById("com00").src = tmp;
+        // document.getElementById("com01").src = tmp;
+        // document.getElementById("com02").src = tmp;
+        // document.getElementById("com03").src = tmp;
+        // document.getElementById("com04").src = tmp;
+    
+        setTimeout(result_show, 1000);
+        setTimeout(reset, 5000)
+        gamecount++;
+        console.log(gamecount);
+    }
+};
+
+battle();
 
 
 
