@@ -4,6 +4,7 @@ import Compare
 
 compare_class = Compare.CompareHand()
 
+
 class ChangeHand:
     def make_card_list(self):
         # マークのリスト
@@ -28,73 +29,73 @@ class ChangeHand:
                     card['string'] = symbol + 'Q'
                 elif number == 4:
                     card['string'] = symbol + 'J'
-                    
+
                 # カードをリストに追加
                 card_list.append(card)
-        
+
         card_list.append({
-                    'number': 0,
-                    'symbol': 'Joker',
-                    'string': 'Joker'
-                })
+            'number': 0,
+            'symbol': 'Joker',
+            'string': 'Joker'
+        })
         self.card_list = card_list
-    
-    def deck_org(self,playerhand,comhand):
+
+    def deck_org(self, playerhand, comhand):
         self.d_str = [d.get('string') for d in self.card_list]
         self.p_str = [d.get('string') for d in playerhand]
         self.c_str = [d.get('string') for d in comhand]
         p_mutch_nlist = [self.d_str.index(d) for d in self.p_str]
         # 数字の昇順に並び替える
-        p_mutch_nlist = sorted(p_mutch_nlist,reverse=True)
+        p_mutch_nlist = sorted(p_mutch_nlist, reverse=True)
         for d in p_mutch_nlist:
-            self.card_list.pop(d) 
+            self.card_list.pop(d)
         self.d_str = [d.get('string') for d in self.card_list]
         c_mutch_nlist = [self.d_str.index(d) for d in self.c_str]
         # 数字の昇順に並び替える
-        c_mutch_nlist = sorted(c_mutch_nlist,reverse=True)
+        c_mutch_nlist = sorted(c_mutch_nlist, reverse=True)
         for d in c_mutch_nlist:
-            self.card_list.pop(d) 
+            self.card_list.pop(d)
         self.d_str = [d.get('string') for d in self.card_list]
         print(f'デッキ{self.d_str}')
         print(f'プレイヤーハンド{self.p_str}')
         print(f'COMハンド{self.c_str}')
 
-    def comchange_select(self,comhand):
+    def comchange_select(self, comhand):
         # 数字の昇順に並び替える
         comhand = sorted(comhand, key=lambda x: x['number'])
         if comhand[0]['number'] == 0:
-            #jokerアリの場合(com)
+            # jokerアリの場合(com)
             c_point = compare_class.joker_handpoint(comhand)
         else:
-            #joker無しの場合
+            # joker無しの場合
             c_point = compare_class.handpoint(comhand)
         print(c_point)
-        
-        if c_point < 400: # ストレート以下なら交換（持っているカードのユニークを交換）
+
+        if c_point < 400:  # ストレート以下なら交換（持っているカードのユニークを交換）
             # 最頻値を取り出す（ツーペアの場合二つ）
             mode_c_card = pd.DataFrame(comhand)['number'].mode().tolist()
             mode_c_card.sort()
             comhand = [x for x in comhand if not x['number'] == mode_c_card[0]]
             # print([d.get('string') for d in comhand])
-            if not len(mode_c_card)==1:
+            if not len(mode_c_card) == 1:
                 # ツーペア
                 # さらにユニークなもののみ
-                comhand = [x for x in comhand if not x['number'] == mode_c_card[1]]
+                comhand = [x for x in comhand if not x['number']
+                           == mode_c_card[1]]
                 # print([d.get('string') for d in comhand])
                 return comhand
-            
-            if len(comhand)==3:
+
+            if len(comhand) == 3:
                 # ワンペアの場合（ユニークなカードの一枚目（強いカード）以外を交換）
                 # JokerがあればJokerが残る（ワンペア＋Jokerのスリーカード）
                 comhand.pop(0)
             # それ以外はユニークなものすべてを交換
-            
 
         return comhand
 
-    def change_cards(self,playerhand,comhand, num1,num2,num3):
+    def change_cards(self, playerhand, comhand, num1, num2, num3):
         self.make_card_list()
-        self.deck_org(playerhand,comhand)
+        self.deck_org(playerhand, comhand)
 
         # カードをシャッフルする
         random.shuffle(self.card_list)
@@ -117,7 +118,7 @@ class ChangeHand:
         change_str = [d.get('string') for d in change_comcards]
         mutch_list = [self.c_str.index(d) for d in change_str]
         # 数字の昇順に並び替える
-        mutch_list = sorted(mutch_list,reverse=True)
+        mutch_list = sorted(mutch_list, reverse=True)
         print(mutch_list)
         for d in mutch_list:
             comhand.pop(d)
@@ -132,14 +133,16 @@ class ChangeHand:
         print([d.get('string') for d in playerhand])
         print([d.get('string') for d in comhand])
 
-        return playerhand,comhand
-        
+        return playerhand, comhand
+
 
 if __name__ == '__main__':
 
     mh = ChangeHand()
-    check_1 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
-    check_2 = [{'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}]
-    playerhand,comhand = mh.change_cards(check_1,check_2,2,None,None)
+    check_1 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {
+        'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
+    check_2 = [{'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {
+        'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}]
+    playerhand, comhand = mh.change_cards(check_1, check_2, 2, None, None)
     print(playerhand)
     print(comhand)
