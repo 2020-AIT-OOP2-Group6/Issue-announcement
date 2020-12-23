@@ -96,6 +96,8 @@ class ChangeHand:
         self.make_card_list()
         self.deck_org(playerhand,comhand)
 
+        # 数字の昇順に並び替える
+        playerhand = sorted(playerhand, key=lambda x: x['number'])
         # カードをシャッフルする
         random.shuffle(self.card_list)
 
