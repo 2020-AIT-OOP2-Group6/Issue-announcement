@@ -27,6 +27,7 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       console.log(data);
       console.log(data[0]);
       console.log(data[0].hand_score);
+      console.log(data[2].c0);
 
       var handscore = document.getElementById("play_score");
       console.log(handscore);
@@ -35,6 +36,12 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       var ophandscore = document.getElementById("com_score");
       console.log(ophandscore);
       ophandscore.innerHTML = "<h1>com score:" + data[1].ophand_score + "</h1>";
+    
+      document.getElementsByClassName("com_card")[1].setAttribute('src','/static/'+ data[2].c0);
+      document.getElementsByClassName("com_card")[2].setAttribute('src','/static/'+ data[3].c1);
+      document.getElementsByClassName("com_card")[3].setAttribute('src','/static/'+ data[4].c2);
+      document.getElementsByClassName("com_card")[4].setAttribute('src','/static/'+ data[5].c3);
+      document.getElementsByClassName("com_card")[5].setAttribute('src','/static/'+ data[6].c4);
     });
   });
 });
