@@ -16,6 +16,9 @@ from app.name import module_api
 import Chenge
 import Poker
 import json
+import Type_Adjust
+import Compare
+import pandas
 
 app = Flask(__name__)
 
@@ -48,7 +51,55 @@ def play():
     for index, target_list in enumerate(Decklist):
         Decklist[index] = 'tranp_img/' + target_list + '.png'
 
-    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4])
+    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4])
+
+
+@app.route('/battle', methods=['GET'])
+def battle():
+    # 外部クラスのインスタンス
+    coh = Compare.CompareHand()
+
+    # 自分の手札のリスト
+    hand_list = []
+
+    hand_list.append(request.args.get('hand0', None))
+    hand_list.append(request.args.get('hand1', None))
+    hand_list.append(request.args.get('hand2', None))
+    hand_list.append(request.args.get('hand3', None))
+    hand_list.append(request.args.get('hand4', None))
+
+    # 関数を呼び出せる形にするためのリスト
+    hand_dictionary = []
+    for hand in hand_list:
+        hand_dictionary.append(Type_Adjust.Adjust(hand))
+        pass
+
+    # 相手の手札のリスト
+    ophand_list = []
+
+    ophand_list.append(request.args.get('ophand0', None))
+    ophand_list.append(request.args.get('ophand1', None))
+    ophand_list.append(request.args.get('ophand2', None))
+    ophand_list.append(request.args.get('ophand3', None))
+    ophand_list.append(request.args.get('ophand4', None))
+
+    ophand_dictionary = []
+    for ophand in ophand_list:
+        ophand_dictionary.append(Type_Adjust.Adjust(ophand))
+        pass
+
+    # 勝敗判断
+    judge, hand_score = coh.judge_card(hand_dictionary, ophand_dictionary)
+
+    if (judge == 'player'):
+        ophand_score = 0
+        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score})
+
+    else:
+        ophand_score = hand_score
+        hand_score = 0
+        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score})
+
 
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す
