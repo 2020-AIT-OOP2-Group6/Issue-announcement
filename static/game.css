@@ -4,6 +4,10 @@
     text-align: center;
   }
 
+body{
+  background-image: url(pokerback.jpg);
+  background-size: contain;
+}
 
 #retire {
   text-align: right;
@@ -20,8 +24,15 @@ figure {
   margin: 2%;
 }
 
-.top {
-    text-align: left;
+.left{
+  text-align: center;
+  margin-left: 10px;
+  background-color: white;
+  width: 250px;
+}
+
+.foot{
+  position: relative;
 }
 
 /* .com_card {} */
@@ -35,9 +46,6 @@ figure {
   text-align: center;
 }
 
-.foot {
-  text-align: left;
-}
 
 .button {
   text-align: center;
@@ -49,7 +57,8 @@ figure {
 .two-button {
   top: 0px;
   width: 100%;
-  
+  position: absolute;
+
 }
 
 #battle{
@@ -74,4 +83,37 @@ figure {
 }
 #hand04.active{
     margin-bottom: 20px;
+}
+
+.middle{
+  position: relative;
+}
+
+#result.hidden{
+  visibility:hidden;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: black;/*文字色*/
+  background: #FFF;
+  border: solid 3px orange;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  
+  position: absolute;
+  top: 31%;
+  left: 35.5%;
+}
+
+#result.gemeset{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: black;/*文字色*/
+  background: #FFF;
+  border: solid 3px orange;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  
+  position: absolute;
+  top: 31%;
+  left: 35.5%;
 }
