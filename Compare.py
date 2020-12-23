@@ -10,8 +10,8 @@ class CompareHand:#(coh)
         playerhand = sorted(playerhand, key=lambda x: x['number'])
         comhand = sorted(comhand, key=lambda x: x['number'])
         # 手札を見やすく
-        print([d.get('string') for d in playerhand])
-        print([d.get('string') for d in comhand])
+        # print([d.get('string') for d in playerhand])
+        # print([d.get('string') for d in comhand])
 
         mode_p_card = pd.DataFrame(playerhand)['number'].mode().tolist()
         mode_c_card = pd.DataFrame(comhand)['number'].mode().tolist()
@@ -22,7 +22,7 @@ class CompareHand:#(coh)
         high_c_card = mode_c_card[0]
 
         # 値の小さいほうが強い手
-        print(f'player_highcard:{mode_p_card},com_highcard:{mode_c_card}')
+        # print(f'player_highcard:{mode_p_card},com_highcard:{mode_c_card}')
 
         if playerhand[0]['number'] == 0:
             #jokerアリの場合(player)
@@ -37,8 +37,8 @@ class CompareHand:#(coh)
             p_point = self.handpoint(playerhand)
             c_point = self.handpoint(comhand)
 
-        print(p_point)
-        print(c_point)
+        # print(p_point)
+        # print(c_point)
         #　フォーカード
         if p_point > c_point:
             return 'player',p_point
@@ -54,15 +54,15 @@ class CompareHand:#(coh)
                 # ユニークなもののみ
                 playerhand = [x for x in playerhand if not x['number'] == mode_p_card[0]]
                 comhand = [x for x in comhand if not x['number'] == mode_c_card[0]]
-                print([d.get('string') for d in playerhand])
-                print([d.get('string') for d in comhand])
+                # print([d.get('string') for d in playerhand])
+                # print([d.get('string') for d in comhand])
                 if not len(mode_p_card)==1 and not len(mode_c_card)==1:
                     # ツーペア
                     # さらにユニークなもののみ
                     playerhand = [x for x in playerhand if not x['number'] == mode_p_card[1]]
                     comhand = [x for x in comhand if not x['number'] == mode_c_card[1]]
-                    print([d.get('string') for d in playerhand])
-                    print([d.get('string') for d in comhand])
+                    # print([d.get('string') for d in playerhand])
+                    # print([d.get('string') for d in comhand])
                     if mode_p_card[1] < mode_c_card[1]:
                         return 'player',p_point
                     elif mode_p_card[1] > mode_c_card[1]:

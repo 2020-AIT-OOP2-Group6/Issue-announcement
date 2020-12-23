@@ -68,12 +68,12 @@ def battle():
     hand_list.append(request.args.get('hand3', None))
     hand_list.append(request.args.get('hand4', None))
 
+    # print(f'hand:{hand_list}')
     # 関数を呼び出せる形にするためのリスト
     hand_dictionary = []
     for hand in hand_list:
         hand_dictionary.append(Type_Adjust.Adjust(hand))
         pass
-
     # 相手の手札のリスト
     ophand_list = []
 
@@ -93,13 +93,13 @@ def battle():
 
     if (judge == 'player'):
         ophand_score = 0
-        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score})
+        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score}, {"c0": ophand_list[0]}, {"c1": ophand_list[1]}, {"c2": ophand_list[2]}, {"c3": ophand_list[3]}, {"c4": ophand_list[4]})
 
     else:
         ophand_score = hand_score
         hand_score = 0
-        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score})
-
+        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score}, {"c0": ophand_list[0]}, {"c1": ophand_list[1]}, {"c2": ophand_list[2]}, {"c3": ophand_list[3]}, {"c4": ophand_list[4]})
+    
 
 @app.route('/change', methods=['GET'])
 def change():

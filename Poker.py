@@ -65,7 +65,7 @@ class TrumpGame:
         # 数字の昇順に並び替える
         self.draw_cards = sorted(self.draw_cards, key=lambda x: x['number'])
         self.draw_cards2 = sorted(self.draw_cards2, key=lambda x: x['number'])
-        print(self.draw_cards)
+        # print(self.draw_cards)
         return self.draw_cards,self.draw_cards2,self.card_list
 
     

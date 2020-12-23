@@ -1,5 +1,5 @@
 def Adjust(card_stringlong):
-
+    # print(card_stringlong)
     card_short = {'number': 1, 'symbol': 'none', 'string': 'none'}
     if 'Clubs' in card_stringlong:
         card_short['symbol'] = 'Clubs'
@@ -61,5 +61,5 @@ def Adjust(card_stringlong):
         card_short['symbol'] = 'Joker'
         card_short['number'] = 0
         card_short['string'] = 'Joker'
-
+    # print(card_short)
     return card_short
