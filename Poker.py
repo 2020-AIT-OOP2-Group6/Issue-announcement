@@ -49,7 +49,7 @@ class TrumpGame:
 
         self.shuffle()
         self.draw_cards = []
-        self.draw_cards_op = []
+        self.draw_cards2 = []
         
         
         for i in range(0, number):
@@ -57,19 +57,19 @@ class TrumpGame:
                 self.card_list.pop(0)
             )
 
-        for i in range(0, number):
-            self.draw_cards_op.append(
+        for i in range(5, number+5):
+            self.draw_cards2.append(
                 self.card_list.pop(0)
             )
 
         # print(self.draw_cards)
-        return self.draw_cards,self.draw_cards_op,self.card_list
+        return self.draw_cards,self.draw_cards2,self.card_list
 
     
 if __name__ == '__main__':
     tg = TrumpGame()
     cnt = 0
-    draw_cards,draw_cards_op,deck = tg.reset_draw_cards()
+    draw_cards,draw_cards2,deck = tg.reset_draw_cards()
    
     print("プレイヤー　ハンド")
     for card in draw_cards:
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     print(cnt)
 
     print("敵　ハンド")
-    for card in draw_cards_op:
+    for card in draw_cards2:
         cnt += 1
         print(card['string'])
     print(cnt)

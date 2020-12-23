@@ -56,4 +56,9 @@ def Adjust(card_stringlong):
         if 'J' in card_stringlong:
             card_short['number'] = 4
             card_short['string'] = 'DiamondsJ'
+    if 'joker' in card_stringlong:
+        card_short['symbol'] = 'Joker'
+        card_short['number'] = 0
+        card_short['string'] = 'Joker'
+
     return card_short

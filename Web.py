@@ -18,6 +18,7 @@ import Poker
 import json
 import Type_Adjust
 import Compare
+import pandas
 
 app = Flask(__name__)
 
@@ -73,9 +74,6 @@ def battle():
         hand_dictionary.append(Type_Adjust.Adjust(hand))
         pass
 
-    hand_score = coh.check_poker_hand(hand_dictionary)
-    print('hand'+str(hand_score))
-
     # 相手の手札のリスト
     ophand_list = []
 
@@ -90,10 +88,17 @@ def battle():
         ophand_dictionary.append(Type_Adjust.Adjust(ophand))
         pass
 
-    ophand_score = coh.check_poker_hand(ophand_dictionary)
-    print('op'+str(ophand_score))
+    # 勝敗判断
+    judge, hand_score = coh.judge_card(hand_dictionary, ophand_dictionary)
 
-    return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score})
+    if (judge == 'player'):
+        ophand_score = 0
+        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score})
+
+    else:
+        ophand_score = hand_score
+        hand_score = 0
+        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score})
 
 
 if __name__ == "__main__":

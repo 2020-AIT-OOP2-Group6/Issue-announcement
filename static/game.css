@@ -1,9 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
 #retire {
   text-align: right;
@@ -21,7 +20,7 @@ figure {
 }
 
 .top {
-    text-align: left;
+  text-align: left;
 }
 
 /* .com_card {} */
@@ -49,7 +48,6 @@ figure {
 .two-button {
   top: 0px;
   width: 100%;
-  
 }
 
 #battle{

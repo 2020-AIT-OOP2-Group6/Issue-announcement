@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='rule.css') }}">
+    <title>ルール説明</title>
+</head>
+<body>
+    <div class="wrap">
+        <h1 class="title">〜17ポーカーのルール〜</h1>
+        <h2 class="sub_title">基本はポーカーのルールと同じ!</h2>
+        <div class="box_1">
+            <h3>用意するもの</h3>
+            <p>・プレイヤーとコンピューターが対戦者となりポーカーを行う</p>
+            <p>・トランプ５４枚の内、各スートのエース、絵札とジョーカー１枚の計１７枚を使用する</p>
+            <p>・ジョーカーはワイルドカードとして扱う</p>
+        </div>
+        <div class="box_2">
+            <h3>ゲームの流れ</h3>
+            <p>・互いに手札５枚を得てゲーム開始</p>
+            <p>・交換したい手札を選び、手札を入れ替える</p>
+            <p>・手札をお互いにオープンする</p>
+            <p>・上記を５回繰り返し合計得点の高いプレイヤーの勝ちとなる</p>
+        </div>
+        <div class="box_3">
+            <h3>オープン</h3>
+            <p> ・より上位の役を掲示できたプレイヤーが勝者となる</p>
+            <p>・勝者側のプレイヤーは役に応じてポイントがもらえる</p>
+            <p>・負けたプレイヤーはポイントを入手することができない</p>
+            <br>
+        </div>
+        <div class="box_4">
+            <h3>役の強さ</h3>
+            <p>1st ファイブカード 800点　　　　2nd ロイヤルストレートフラッシュ 700点</p>
+            <p>3rd フォーカード 600点　　　　　4th フルハウス 500点</p>
+            <p>5th ストレート 400点　　　　　　6th スリーカード 300点</p>
+            <p>7th ツーペア 200点　　　　　　　8th ワンペア 100点</p>
+        </div>
+    </div>
+</body>
+</html>
