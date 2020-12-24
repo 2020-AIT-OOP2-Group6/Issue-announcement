@@ -1,5 +1,5 @@
 function result_show(){
-    result.className = "gemeset";
+    result.className = "gameset";
 }
 
 function turn_front(){
@@ -23,28 +23,28 @@ function reset(){
     document.getElementById('battle').disabled = false;
 }
 
-// function battle(){
-//     let gamecount = 0;
+function battle(){
+    // let gamecount = 0;
 
-//     document.getElementById("battle").onclick = function() {
-//         document.getElementById('card_change').disabled = true;
-//         document.getElementById('battle').disabled = true;
-//         className_normal()
-//         //comの手札開示
-//         // document.getElementById("com00").src = tmp;
-//         // document.getElementById("com01").src = tmp;
-//         // document.getElementById("com02").src = tmp;
-//         // document.getElementById("com03").src = tmp;
-//         // document.getElementById("com04").src = tmp;
+    document.getElementById("battle").onclick = function() {
+        document.getElementById('card_change').disabled = true;
+        document.getElementById('battle').disabled = true;
+        className_normal();
+        //comの手札開示
+        // document.getElementById("com00").src = tmp;
+        // document.getElementById("com01").src = tmp;
+        // document.getElementById("com02").src = tmp;
+        // document.getElementById("com03").src = tmp;
+        // document.getElementById("com04").src = tmp;
     
-//         setTimeout(result_show, 1000);
-//         setTimeout(reset, 5000)
-//         gamecount++;
-//         console.log(gamecount);
-//     }
-// };
+        setTimeout(result_show, 1000);
+        setTimeout(reset, 5000)
+        gamecount++;
+        console.log(gamecount);
+    }
+};
 
-// battle();
+battle();
 
 
 function turn_background(){
@@ -107,8 +107,8 @@ function className_normal(){
 //     }
 //     document.getElementById("card_change").onclick = function() {
 //         if(hand00.className == "active" || hand01.className == "active" || hand02.className == "active" || hand03.className == "active" || hand04.className == "active"){
-//             turn_background();
-//             setTimeout(newcard_get, 1000);
+//             // turn_background();
+             
 //             setTimeout(className_normal,1500);
 //         }
 //     };
