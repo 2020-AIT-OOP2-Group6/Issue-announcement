@@ -37,7 +37,7 @@
       </div>
     </a>
     <h3 class="left">com</h3>
-     <div class="middle">
+    <div class="middle">
       <div id="com_score"></div>
       <section class="com_card">
         <figure>
@@ -130,12 +130,14 @@
         </figure>
       </section>
       <div id="result" class="hidden">
-        <h3>winner {{pname}}さん</h3>
+        <h3 name="{{pname}}" id="pname">winner {{pname}}さん</h3>
         <h3>スコア+ {{score}}点</h3>
       </div>
     </div>
     <div class="foot">
-      <h3 class="left" id="result_name">{{pname}}さん</h3>
+      <div id="macro_pname">
+        <h3 class="left" id="result_name">{{pname}}さん</h3>
+      </div>
       <h3 class="left" id="result_score">スコア：{{score}}点</h3>
       <div class="two-button">
         <input
@@ -154,5 +156,6 @@
         />
       </div>
     </div>
+    <div id="reset"></div>
   </body>
 </html>

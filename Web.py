@@ -36,6 +36,7 @@ def index():
 
 @app.route('/play', methods=['POST'])
 def play():
+
     pname = request.form['pname']
 
     hand_list, Opponent_list, Decklist = hand_class.reset_draw_cards()
@@ -52,6 +53,29 @@ def play():
         Decklist[index] = 'tranp_img/' + target_list + '.png'
 
     return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4])
+
+
+@app.route('/reset', methods=['GET'])
+def reset():
+    print('reset')
+
+    pname = request.args.get("pname", None)
+    score = request.args.get("score", None)
+
+    hand_list, Opponent_list, Decklist = hand_class.reset_draw_cards()
+
+    handstring = [d.get('string')for d in hand_list]
+    oppostring = [d.get('string')for d in Opponent_list]
+    Decklist = [d.get('string') for d in Decklist]
+
+    for index, target_list in enumerate(handstring):
+        handstring[index] = 'tranp_img/'+target_list+'.png'
+    for index, target_list in enumerate(oppostring):
+        oppostring[index] = 'tranp_img/'+target_list+'.png'
+    for index, target_list in enumerate(Decklist):
+        Decklist[index] = 'tranp_img/' + target_list + '.png'
+
+    return render_template("game.html", pname=pname, score=score, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4])
 
 
 @app.route('/battle', methods=['GET'])
@@ -88,18 +112,20 @@ def battle():
         ophand_dictionary.append(Type_Adjust.Adjust(ophand))
         pass
 
+    pname = request.args.get('pname', None)
+
     # 勝敗判断
     judge, hand_score = coh.judge_card(hand_dictionary, ophand_dictionary)
 
     if (judge == 'player'):
         ophand_score = 0
-        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score}, {"c0": ophand_list[0]}, {"c1": ophand_list[1]}, {"c2": ophand_list[2]}, {"c3": ophand_list[3]}, {"c4": ophand_list[4]})
+        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score}, {"c0": ophand_list[0]}, {"c1": ophand_list[1]}, {"c2": ophand_list[2]}, {"c3": ophand_list[3]}, {"c4": ophand_list[4]}, {"pname": pname})
 
     else:
         ophand_score = hand_score
         hand_score = 0
-        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score}, {"c0": ophand_list[0]}, {"c1": ophand_list[1]}, {"c2": ophand_list[2]}, {"c3": ophand_list[3]}, {"c4": ophand_list[4]})
-    
+        return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score}, {"c0": ophand_list[0]}, {"c1": ophand_list[1]}, {"c2": ophand_list[2]}, {"c3": ophand_list[3]}, {"c4": ophand_list[4]}, {"pname": pname})
+
 
 @app.route('/change', methods=['GET'])
 def change():
