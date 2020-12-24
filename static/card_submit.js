@@ -22,7 +22,9 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       "&ophand4=" +
       document.getElementsByClassName("com_card")[5].getAttribute("name") +
       "&pname=" +
-      document.getElementById("pname").getAttribute("name")
+      document.getElementById("pname").getAttribute("name") +
+      "&score=" +
+      document.getElementById("result_score")
   ).then((Response) => {
     console.log(Response);
     Response.json().then((data) => {
@@ -41,6 +43,7 @@ document.querySelector("#battle").addEventListener("click", (e) => {
 
       var score_i_t = document.getElementById("result_score");
       console.log(score_i_t);
+
       score_i_t.innerHTML = "スコア：" + data[0].hand_score + "点";
 
       var reset = document.getElementById("reset");
@@ -50,10 +53,6 @@ document.querySelector("#battle").addEventListener("click", (e) => {
         "&score=" +
         data[0].hand_score +
         '">次のゲームへ</a>';
-
-      // var resetpname = document.getElementById("macro_pname");
-      // reset.innerHTML =
-      //   '<h3 class="left" id="result_name">' + data[7].pname + "さん</h3>";
 
       document
         .getElementsByClassName("com_card")[1]
