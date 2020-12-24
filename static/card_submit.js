@@ -1,16 +1,20 @@
+function result_show() {
+  result.className = "gameset";
+}
+
 document.querySelector("#battle").addEventListener("click", (e) => {
   e.preventDefault();
   fetch(
     "/battle?hand0=" +
-      document.getElementById("hand00").getAttribute("src") +
+      document.getElementById("hand00").getAttribute("tag") +
       "&hand1=" +
-      document.getElementById("hand01").getAttribute("src") +
+      document.getElementById("hand01").getAttribute("tag") +
       "&hand2=" +
-      document.getElementById("hand02").getAttribute("src") +
+      document.getElementById("hand02").getAttribute("tag") +
       "&hand3=" +
-      document.getElementById("hand03").getAttribute("src") +
+      document.getElementById("hand03").getAttribute("tag") +
       "&hand4=" +
-      document.getElementById("hand04").getAttribute("src") +
+      document.getElementById("hand04").getAttribute("tag") +
       "&ophand0=" +
       document.getElementsByClassName("com_card")[1].getAttribute("name") +
       "&ophand1=" +
@@ -24,15 +28,10 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       "&pname=" +
       document.getElementById("pname").getAttribute("name") +
       "&score=" +
-      document.getElementById("result_score")
+      document.getElementById("result_score").getAttribute("name")
   ).then((Response) => {
     console.log(Response);
     Response.json().then((data) => {
-      console.log(data);
-      console.log(data[0]);
-      console.log(data[0].hand_score);
-      console.log(data[2].c0);
-
       // var handscore = document.getElementById("play_score");
       // console.log(handscore);
       // handscore.innerHTML = "<h1>player score:" + data[0].hand_score + "</h1>";
@@ -41,17 +40,35 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       // console.log(ophandscore);
       // ophandscore.innerHTML = "<h1>com score:" + data[1].ophand_score + "</h1>";
 
-      var score_i_t = document.getElementById("result_score");
+      var score_i_t = document.getElementById("result");
       console.log(score_i_t);
 
-      score_i_t.innerHTML = "スコア：" + data[0].hand_score + "点";
+      score_i_t.innerHTML =
+        "<h3 name=" +
+        data[7].pname +
+        'id="pname">winner' +
+        data[7].pname +
+        "さん</h3><h3>スコア+" +
+        data[0].hand_score +
+        "点</h3>";
+
+      total_score =
+        data[0].hand_score +
+        Number(document.getElementById("result_score").getAttribute("name"));
+      console.log(total_score);
+      console.log("re");
+
+      // console.log(
+      //   Number(document.getElementById("result_score").getAttribute("name"))
+      // );
+      // console.log(total_score);
 
       var reset = document.getElementById("reset");
       reset.innerHTML =
         '<a href="/reset?pname=' +
         data[7].pname +
         "&score=" +
-        data[0].hand_score +
+        total_score +
         '">次のゲームへ</a>';
 
       document
@@ -71,4 +88,5 @@ document.querySelector("#battle").addEventListener("click", (e) => {
         .setAttribute("src", "/static/" + data[6].c4);
     });
   });
+  setTimeout(result_show, 2000);
 });

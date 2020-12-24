@@ -52,7 +52,7 @@ def play():
     for index, target_list in enumerate(Decklist):
         Decklist[index] = 'tranp_img/' + target_list + '.png'
 
-    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4])
+    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4], result_score=0)
 
 
 @app.route('/reset', methods=['GET'])
@@ -75,7 +75,7 @@ def reset():
     for index, target_list in enumerate(Decklist):
         Decklist[index] = 'tranp_img/' + target_list + '.png'
 
-    return render_template("game.html", pname=pname, score=score, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4])
+    return render_template("game.html", pname=pname, result_score=score, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4])
 
 
 @app.route('/battle', methods=['GET'])
@@ -196,4 +196,4 @@ def change():
 
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す
-    app.run(debug=True)
+    app.run(debug=False)

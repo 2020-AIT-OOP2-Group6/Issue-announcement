@@ -1,38 +1,69 @@
 body{
-    background-color: pink;
- }
- .title{
-    text-align: center;
- }
+   font-weight: bolder;
+   background-image: url(pokerback.jpg);
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   background-color: darkgreen;
+
+   color: #ff8800;
+   max-height: 800px;
+   width: auto;
+
+}
+
+.title{
+   text-align: center;
+}
  
- .sub_title{
-    text-align: center;
- }
+.sub_title{
+   text-align: center;
+}
  
- .box_1{
-     float: left;
- 
-     width: 50%; /* 要素の幅を50%に定義 */
-    
-  }
-   
-  .box_2{
-     float: left;
+.box_1{
+   float: left;
  
    width: 50%; /* 要素の幅を50%に定義 */
+   text-align: center;
+    
+}
    
-  }
+.box_2{
+   float: left;
+ 
+   width: 50%; /* 要素の幅を50%に定義 */
+   text-align: center;
    
-  .box_3{
-     float: left;
+}
+   
+.box_3{
+   float: left;
  
    width: 42%; /* 要素の幅を50%に定義 */
-   
-  }
+   text-align: center;
+}
  
-  .box_4{
-     float: left;
+.box_4{
+   float: left;
  
    width: 58%; /* 要素の幅を50%に定義 */
-   
-  }
+   text-align: center;
+   position: relative;
+}
+
+.left{
+   float: left;
+   text-align: center;
+   top: 35px;
+   padding-right: 5%;
+}
+
+.right{
+   float: left;
+   text-align: center;
+   /*position: absolute;*/
+   top: 35px;
+   right: 10%;
+   padding-left: 10%;
+}
