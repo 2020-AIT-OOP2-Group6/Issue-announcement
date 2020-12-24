@@ -36,100 +36,107 @@
         <button type="button" class="btn btn-primary">リタイヤ</button>
       </div>
     </a>
-    <div class="top">com</div>
-    <div id="com_score"></div>
-    <section class="com_card">
-      <figure>
-        <img
-          src="{{ url_for('static', filename='card_back.png')}}"
-          width="100px"
-          class="com_card"
-          name="{{ophand0}}"
-        />
-      </figure>
-      <figure>
-        <img
-          src="{{ url_for('static', filename='card_back.png')}}"
-          width="100px"
-          class="com_card"
-          name="{{ophand1}}"
-        />
-      </figure>
-      <figure>
-        <img
-          src="{{ url_for('static', filename='card_back.png')}}"
-          width="100px"
-          class="com_card"
-          name="{{ophand2}}"
-        />
-      </figure>
-      <figure>
-        <img
-          src="{{ url_for('static', filename='card_back.png')}}"
-          width="100px"
-          class="com_card"
-          name="{{ophand3}}"
-        />
-      </figure>
-      <figure>
-        <img
-          src="{{ url_for('static', filename='card_back.png')}}"
-          width="100px"
-          class="com_card"
-          name="{{ophand4}}"
-        />
-      </figure>
-    </section>
-    <div id="play_score"></div>
-    <section class="player_card">
-      <figure>
-        <img
-          src="{{url_for('static',filename=hand0)}}"
-          width="100px"
-          id="hand00"
-          name="0"
-          class=""
-        />
-      </figure>
-      <figure>
-        <img
-          src="{{url_for('static',filename=hand1)}}"
-          width="100px"
-          id="hand01"
-          name="1"
-          class=""
-        />
-      </figure>
-      <figure>
-        <img
-          src="{{url_for('static',filename=hand2)}}"
-          width="100px"
-          id="hand02"
-          name="2"
-          class=""
-        />
-      </figure>
-      <figure>
-        <img
-          src="{{url_for('static',filename=hand3)}}"
-          width="100px"
-          id="hand03"
-          name="3"
-          class=""
-        />
-      </figure>
-      <figure>
-        <img
-          src="{{url_for('static',filename=hand4)}}"
-          width="100px"
-          id="hand04"
-          name="4"
-          class=""
-        />
-      </figure>
-    </section>
+    <h3 class="left">com</h3>
+     <div class="middle">
+      <div id="com_score"></div>
+      <section class="com_card">
+        <figure>
+          <img
+            src="{{ url_for('static', filename='card_back.png')}}"
+            width="100px"
+            class="com_card"
+            name="{{ophand0}}"
+          />
+        </figure>
+        <figure>
+          <img
+            src="{{ url_for('static', filename='card_back.png')}}"
+            width="100px"
+            class="com_card"
+            name="{{ophand1}}"
+          />
+        </figure>
+        <figure>
+          <img
+            src="{{ url_for('static', filename='card_back.png')}}"
+            width="100px"
+            class="com_card"
+            name="{{ophand2}}"
+          />
+        </figure>
+        <figure>
+          <img
+            src="{{ url_for('static', filename='card_back.png')}}"
+            width="100px"
+            class="com_card"
+            name="{{ophand3}}"
+          />
+        </figure>
+        <figure>
+          <img
+            src="{{ url_for('static', filename='card_back.png')}}"
+            width="100px"
+            class="com_card"
+            name="{{ophand4}}"
+          />
+        </figure>
+      </section>
+      <div id="play_score"></div>
+      <section class="player_card">
+        <figure>
+          <img
+            src="{{url_for('static',filename=hand0)}}"
+            width="100px"
+            id="hand00"
+            name="0"
+            class=""
+          />
+        </figure>
+        <figure>
+          <img
+            src="{{url_for('static',filename=hand1)}}"
+            width="100px"
+            id="hand01"
+            name="1"
+            class=""
+          />
+        </figure>
+        <figure>
+          <img
+            src="{{url_for('static',filename=hand2)}}"
+            width="100px"
+            id="hand02"
+            name="2"
+            class=""
+          />
+        </figure>
+        <figure>
+          <img
+            src="{{url_for('static',filename=hand3)}}"
+            width="100px"
+            id="hand03"
+            name="3"
+            class=""
+          />
+        </figure>
+        <figure>
+          <img
+            src="{{url_for('static',filename=hand4)}}"
+            width="100px"
+            id="hand04"
+            name="4"
+            class=""
+          />
+        </figure>
+      </section>
+      <div id="result" class="hidden">
+        <h3>winner {{pname}}さん</h3>
+        <h3>スコア+ {{score}}点</h3>
+      </div>
+    </div>
     <div class="foot">
-      {{pname}}
+      <h3 class="left" id="result_name">{{pname}}さん</h3>
+      <h3 class="left" id="result_score">スコア：{{score}}点</h3>
       <div class="two-button">
         <input
           id="battle"
