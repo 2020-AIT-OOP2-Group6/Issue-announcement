@@ -1,6 +1,11 @@
 body{
-    background-color: pink;
+   font-weight: bolder;
+   background-image: url(pokerback.jpg);
+   color: rgb(255, 136, 0);
+   height: 100%;
+
  }
+ 
  .title{
     text-align: center;
  }
