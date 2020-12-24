@@ -29,14 +29,18 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       console.log(data[0].hand_score);
       console.log(data[2].c0);
 
-      var handscore = document.getElementById("play_score");
-      console.log(handscore);
-      handscore.innerHTML = "<h1>player score:" + data[0].hand_score + "</h1>";
+      // var handscore = document.getElementById("play_score");
+      // console.log(handscore);
+      // handscore.innerHTML = "<h1>player score:" + data[0].hand_score + "</h1>";
       
 
-      var ophandscore = document.getElementById("com_score");
-      console.log(ophandscore);
-      ophandscore.innerHTML = "<h1>com score:" + data[1].ophand_score + "</h1>";
+      // var ophandscore = document.getElementById("com_score");
+      // console.log(ophandscore);
+      // ophandscore.innerHTML = "<h1>com score:" + data[1].ophand_score + "</h1>";
+
+      var score_i_t = document.getElementById("result_score");
+      console.log(score_i_t)
+      score_i_t.innerHTML = 'スコア：'+data[0].hand_score+'点'
     
       document.getElementsByClassName("com_card")[1].setAttribute('src','/static/'+ data[2].c0);
       document.getElementsByClassName("com_card")[2].setAttribute('src','/static/'+ data[3].c1);
