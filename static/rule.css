@@ -1,0 +1,38 @@
+body{
+    background-color: pink;
+ }
+ .title{
+    text-align: center;
+ }
+ 
+ .sub_title{
+    text-align: center;
+ }
+ 
+ .box_1{
+     float: left;
+ 
+     width: 50%; /* 要素の幅を50%に定義 */
+    
+  }
+   
+  .box_2{
+     float: left;
+ 
+   width: 50%; /* 要素の幅を50%に定義 */
+   
+  }
+   
+  .box_3{
+     float: left;
+ 
+   width: 42%; /* 要素の幅を50%に定義 */
+   
+  }
+ 
+  .box_4{
+     float: left;
+ 
+   width: 58%; /* 要素の幅を50%に定義 */
+   
+  }
