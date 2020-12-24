@@ -1,16 +1,20 @@
+function result_show(){
+  result.className = "gameset";
+}
+
 document.querySelector("#battle").addEventListener("click", (e) => {
   e.preventDefault();
   fetch(
     "/battle?hand0=" +
-      document.getElementById("hand00").getAttribute("src") +
+      document.getElementById("hand00").getAttribute("tag") +
       "&hand1=" +
-      document.getElementById("hand01").getAttribute("src") +
+      document.getElementById("hand01").getAttribute("tag") +
       "&hand2=" +
-      document.getElementById("hand02").getAttribute("src") +
+      document.getElementById("hand02").getAttribute("tag") +
       "&hand3=" +
-      document.getElementById("hand03").getAttribute("src") +
+      document.getElementById("hand03").getAttribute("tag") +
       "&hand4=" +
-      document.getElementById("hand04").getAttribute("src") +
+      document.getElementById("hand04").getAttribute("tag") +
       "&ophand0=" +
       document.getElementsByClassName("com_card")[1].getAttribute("name") +
       "&ophand1=" +
@@ -49,4 +53,6 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       document.getElementsByClassName("com_card")[5].setAttribute('src','/static/'+ data[6].c4);
     });
   });
+  setTimeout(result_show,2000);
+  
 });
