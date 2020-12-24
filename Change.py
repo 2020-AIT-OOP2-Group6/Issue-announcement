@@ -69,7 +69,7 @@ class ChangeHand:
         else:
             # joker無しの場合
             c_point = compare_class.handpoint(comhand)
-        print(c_point)
+        # print(c_point)
 
         if c_point < 400:  # ストレート以下なら交換（持っているカードのユニークを交換）
             # 最頻値を取り出す（ツーペアの場合二つ）
@@ -91,7 +91,10 @@ class ChangeHand:
                 comhand.pop(0)
             # それ以外はユニークなものすべてを交換
 
-        return comhand
+            return comhand
+        else:
+            comhand = [None]
+            return comhand
 
     def change_cards(self, playerhand, comhand, num1, num2, num3):
         self.make_card_list()
@@ -117,14 +120,15 @@ class ChangeHand:
             playerhand.append(self.card_list.pop(0))
 
         change_comcards = self.comchange_select(comhand)
-        change_str = [d.get('string') for d in change_comcards]
-        mutch_list = [self.c_str.index(d) for d in change_str]
-        # 数字の昇順に並び替える
-        mutch_list = sorted(mutch_list, reverse=True)
-        print(mutch_list)
-        for d in mutch_list:
-            comhand.pop(d)
-            comhand.append(self.card_list.pop(0))
+        if not change_comcards[0] == None:
+            change_str = [d.get('string') for d in change_comcards]
+            mutch_list = [self.c_str.index(d) for d in change_str]
+            # 数字の昇順に並び替える
+            mutch_list = sorted(mutch_list, reverse=True)
+            # print(mutch_list)
+            for d in mutch_list:
+                comhand.pop(d)
+                comhand.append(self.card_list.pop(0))
         # 手札最終表示
         print('-------after shuffle-------')
         # 数字の昇順に並び替える
@@ -145,6 +149,13 @@ if __name__ == '__main__':
         'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
     check_2 = [{'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {
         'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}]
+    check_3 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
+    check_4 = [{'number': 4, 'symbol': 'Clubs', 'string': 'ClubsJ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}, {'number': 0, 'symbol': 'Joker', 'string': 'Joker'}]
+
     playerhand, comhand = mh.change_cards(check_1, check_2, 2, None, None)
-    print(playerhand)
-    print(comhand)
+    # print(playerhand)
+    # print(comhand)
+
+    playerhand1, comhand1 = mh.change_cards(check_4, check_3, 2, None, None)
+    # print(playerhand1)
+    # print(comhand1)
