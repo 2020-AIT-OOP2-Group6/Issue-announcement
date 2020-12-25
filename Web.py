@@ -34,10 +34,20 @@ def index():
     return render_template("index.html")
 
 
+@app.route('/title', methods=['GET'])
+def title():
+
+    pname = request.args.get("pname", None)
+    score = request.args.get("result_score", None)
+
+    return render_template("index.html")
+
+
 @app.route('/play', methods=['POST'])
 def play():
 
     pname = request.form['pname']
+    count = 1
 
     hand_list, Opponent_list, Decklist = hand_class.reset_draw_cards()
 
@@ -52,15 +62,16 @@ def play():
     for index, target_list in enumerate(Decklist):
         Decklist[index] = 'tranp_img/' + target_list + '.png'
 
-    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4], result_score=0)
+    return render_template("game.html", pname=pname, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4], result_score=0, round_count=1)
 
 
-@app.route('/reset', methods=['GET'])
-def reset():
+@app.route('/next', methods=['GET'])
+def next_p():
     print('reset')
 
     pname = request.args.get("pname", None)
     score = request.args.get("score", None)
+    round_count = request.args.get("round_count", None)
 
     hand_list, Opponent_list, Decklist = hand_class.reset_draw_cards()
 
@@ -75,7 +86,7 @@ def reset():
     for index, target_list in enumerate(Decklist):
         Decklist[index] = 'tranp_img/' + target_list + '.png'
 
-    return render_template("game.html", pname=pname, result_score=score, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4])
+    return render_template("game.html", pname=pname, result_score=score, hand0=handstring[0], hand1=handstring[1], hand2=handstring[2], hand3=handstring[3], hand4=handstring[4], ophand0=oppostring[0], ophand1=oppostring[1], ophand2=oppostring[2], ophand3=oppostring[3], ophand4=oppostring[4], round_count=round_count)
 
 
 @app.route('/battle', methods=['GET'])

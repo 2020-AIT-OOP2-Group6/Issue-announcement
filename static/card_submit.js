@@ -58,18 +58,32 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       console.log(total_score);
       console.log("re");
 
-      // console.log(
-      //   Number(document.getElementById("result_score").getAttribute("name"))
-      // );
-      // console.log(total_score);
+      var result_score_value = document.getElementById("result_score_value");
+      result_score_value.innerHTML = total_score;
 
-      var reset = document.getElementById("reset");
-      reset.innerHTML =
-        '<a href="/reset?pname=' +
-        data[7].pname +
-        "&score=" +
-        total_score +
-        '">次のゲームへ</a>';
+      //何ゲーム目なのか判断する変数
+      var round_count =
+        Number(document.getElementById("round_count").getAttribute("name")) + 1;
+
+      var next = document.getElementById("next");
+
+      if (round_count < 6) {
+        next.innerHTML =
+          '<a href="/next?pname=' +
+          data[7].pname +
+          "&score=" +
+          total_score +
+          "&round_count=" +
+          round_count +
+          '">次のゲームへ</a>';
+      } else {
+        next.innerHTML =
+          '<h3>終了です</h3> <div id="next"><a href="/title?pname=' +
+          data[7].pname +
+          "&result_score=" +
+          total_score +
+          '"><div id="title"><button type="button" class="btn btn-primary">タイトルに戻る</button></div></a></div>';
+      }
 
       document
         .getElementsByClassName("com_card")[1]

@@ -145,7 +145,7 @@
       </div>
       <h3 class="left">現在のスコア</h3>
       <h3 class="left" id="result_score" name="{{result_score}}">
-        {{result_score}}
+        <div id="result_score_value">{{result_score}}</div>
       </h3>
       <div class="two-button">
         <input
@@ -164,6 +164,13 @@
         />
       </div>
     </div>
-    <div id="reset"></div>
+    <div id="next">
+      <a href="http://127.0.0.1:5000/?pname=pname&score=score">
+        <div id="title">
+          <button type="button" class="btn btn-primary">タイトルに戻る</button>
+        </div>
+      </a>
+    </div>
+    <div id="round_count" name="{{round_count}}">ラウンド{{round_count}}</div>
   </body>
 </html>
