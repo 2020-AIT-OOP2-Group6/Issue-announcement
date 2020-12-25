@@ -37,7 +37,7 @@
       </div>
     </a>
     <h3 class="left">com</h3>
-     <div class="middle">
+    <div class="middle">
       <div id="com_score"></div>
       <section class="com_card">
         <figure>
@@ -90,7 +90,7 @@
             id="hand00"
             name="0"
             class=""
-            tag={{hand0}}
+            tag="{{hand0}}"
           />
         </figure>
         <figure>
@@ -100,7 +100,7 @@
             id="hand01"
             name="1"
             class=""
-            tag={{hand1}}
+            tag="{{hand1}}"
           />
         </figure>
         <figure>
@@ -110,7 +110,7 @@
             id="hand02"
             name="2"
             class=""
-            tag={{hand2}}
+            tag="{{hand2}}"
           />
         </figure>
         <figure>
@@ -120,7 +120,7 @@
             id="hand03"
             name="3"
             class=""
-            tag={{hand3}}
+            tag="{{hand3}}"
           />
         </figure>
         <figure>
@@ -130,18 +130,23 @@
             id="hand04"
             name="4"
             class=""
-            tag={{hand4}}
+            tag="{{hand4}}"
           />
         </figure>
       </section>
       <div id="result" class="hidden">
-        <h3>winner {{pname}}さん</h3>
+        <h3 name="{{pname}}" id="pname">winner {{pname}}さん</h3>
         <h3>スコア+ {{score}}点</h3>
       </div>
     </div>
     <div class="foot">
-      <h3 class="left" id="result_name">{{pname}}さん</h3>
-      <h3 class="left" id="result_score">スコア：{{score}}点</h3>
+      <div id="macro_pname">
+        <h3 class="left" id="result_name">{{pname}}さん</h3>
+      </div>
+      <h3 class="left">現在のスコア</h3>
+      <h3 class="left" id="result_score" name="{{result_score}}">
+        <div id="result_score_value">{{result_score}}</div>
+      </h3>
       <div class="two-button">
         <input
           id="battle"
@@ -159,5 +164,13 @@
         />
       </div>
     </div>
+    <div id="next">
+      <a href="http://127.0.0.1:5000/?pname=pname&score=score">
+        <div id="title">
+          <button type="button" class="btn btn-primary">タイトルに戻る</button>
+        </div>
+      </a>
+    </div>
+    <div id="round_count" name="{{round_count}}">ラウンド{{round_count}}</div>
   </body>
 </html>
