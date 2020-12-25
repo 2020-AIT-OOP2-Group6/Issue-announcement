@@ -13,8 +13,9 @@ for i, target_list in enumerate(list):
 
 print(list)
 
-hand_list = ['Joker', 'HeartsA', 'SpadesA', 'DiamondsQ', 'HeartsQ']
-ophand_list = ['DiamondsK', 'HeartsK', 'ClubsK', 'SpadesJ', 'DiamondsJ']
+hand_list = ['DiamondsA', 'SpadesK', 'ClubsK', 'HeartsA', 'SpadesA']
+
+ophand_list = ['HeartsA', 'SpadesQ', 'DiamondsQ', 'DiamondsJ', 'SpadesJ']
 hand_dictionary = []
 for hand in hand_list:
     hand_dictionary.append(Type_Adjust.Adjust(hand))
