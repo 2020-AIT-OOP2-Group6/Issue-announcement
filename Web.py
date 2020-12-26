@@ -127,7 +127,7 @@ def battle():
 
     # 勝敗判断
     judge, hand_score = coh.judge_card(hand_dictionary, ophand_dictionary)
-
+    print(judge,hand_score)
     if (judge == 'player'):
         ophand_score = 0
         return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score}, {"c0": ophand_list[0]}, {"c1": ophand_list[1]}, {"c2": ophand_list[2]}, {"c3": ophand_list[3]}, {"c4": ophand_list[4]}, {"pname": pname})
