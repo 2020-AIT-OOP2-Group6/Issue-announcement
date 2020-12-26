@@ -110,18 +110,21 @@ class ChangeHand:
             # playerhand.pop(num1)
             # playerhand.append(self.card_list.pop(0))
             playerhand[num1] = self.card_list[0]
+            self.card_list.pop(0)
 
         # 交換２
         if num2 != None:
             # playerhand.pop(num2-1)
             # playerhand.append(self.card_list.pop(0))
-            playerhand[num2] = self.card_list[1]
+            playerhand[num2] = self.card_list[0]
+            self.card_list.pop(0)
 
         # 交換３
         if num3 != None:
             # playerhand.pop(num3-2)
             # playerhand.append(self.card_list.pop(0))
-            playerhand[num3] = self.card_list[2]
+            playerhand[num3] = self.card_list[0]
+            self.card_list.pop(0)
 
         change_comcards = self.comchange_select(comhand)
         if not change_comcards[0] == None:
