@@ -38,7 +38,7 @@ function battle(){
         // document.getElementById("com04").src = tmp;
     
         setTimeout(result_show, 1000);
-        setTimeout(reset, 5000)
+        //setTimeout(reset, 5000)
         gamecount++;
         console.log(gamecount);
     }
