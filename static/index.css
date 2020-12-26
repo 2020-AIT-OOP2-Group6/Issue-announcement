@@ -7,6 +7,16 @@
 body {
   color: black;
   background-image: url(poker.jpg);
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+   
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+   
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+   
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
   background-size: cover;
 }
 
@@ -20,6 +30,8 @@ body {
 }
 
 h1 {
+  font-family: cursive;
+  font-size: 60px;
   background-color: red;
   margin-top: 30px;
 }
