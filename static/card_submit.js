@@ -67,6 +67,8 @@ document.querySelector("#battle").addEventListener("click", (e) => {
 
       var next = document.getElementById("next");
 
+      console.log(round_count);
+
       if (round_count < 6) {
         next.innerHTML =
           '<a href="/next?pname=' +

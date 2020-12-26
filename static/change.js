@@ -1,4 +1,4 @@
-function classname_normal (){
+function classname_normal() {
   hand00.className = "";
   hand01.className = "";
   hand02.className = "";
@@ -6,31 +6,31 @@ function classname_normal (){
   hand04.className = "";
 }
 
-function turn_background(){
-  document.getElementById('card_change').disabled = true;
-  if(hand00.className == "active"){
-      tmp0 = document.getElementById("hand00").src
-      document.getElementById("hand00").src =　"static/card_back.png";
+function turn_background() {
+  document.getElementById("card_change").disabled = true;
+  if (hand00.className == "active") {
+    tmp0 = document.getElementById("hand00").src;
+    document.getElementById("hand00").src = "static/card_back.png";
   }
-  if(hand01.className == "active"){
-      tmp1 = document.getElementById("hand01").src
-      document.getElementById("hand01").src =　"static/card_back.png";
+  if (hand01.className == "active") {
+    tmp1 = document.getElementById("hand01").src;
+    document.getElementById("hand01").src = "static/card_back.png";
   }
-  if(hand02.className == "active"){
-      tmp2 = document.getElementById("hand02").src
-      document.getElementById("hand02").src =　"static/card_back.png";
+  if (hand02.className == "active") {
+    tmp2 = document.getElementById("hand02").src;
+    document.getElementById("hand02").src = "static/card_back.png";
   }
-  if(hand03.className == "active"){
-      tmp3 = document.getElementById("hand03").src
-      document.getElementById("hand03").src =　"static/card_back.png";
+  if (hand03.className == "active") {
+    tmp3 = document.getElementById("hand03").src;
+    document.getElementById("hand03").src = "static/card_back.png";
   }
-  if(hand04.className == "active"){
-      tmp4 = document.getElementById("hand04").src
-      document.getElementById("hand04").src =　"static/card_back.png";
+  if (hand04.className == "active") {
+    tmp4 = document.getElementById("hand04").src;
+    document.getElementById("hand04").src = "static/card_back.png";
   }
-};
+}
 
-function newcard_get(){
+function newcard_get() {
   var chenge_card_num = document.getElementsByClassName("active").length;
   var chenge_card_array = new Array(null, null, null, null, null);
   for (i = 0; i < chenge_card_num; i++) {
@@ -85,6 +85,17 @@ function newcard_get(){
       document
         .getElementById("hand04")
         .setAttribute("src", "/static/" + data[4].hand04);
+      document.getElementById("hand00").setAttribute("tag", data[0].hand00);
+      document.getElementById("hand01").setAttribute("tag", data[1].hand01);
+      document.getElementById("hand02").setAttribute("tag", data[2].hand02);
+      document.getElementById("hand03").setAttribute("tag", data[3].hand03);
+      document.getElementById("hand04").setAttribute("tag", data[4].hand04);
+
+      '<h3>終了です</h3> <div id="next"><a href="/title?pname=' +
+        data[7].pname +
+        "&result_score=" +
+        total_score +
+        '"><div id="title"><button type="button" class="btn btn-primary">タイトルに戻る</button></div></a></div>';
       document
         .getElementsByClassName("com_card")[1]
         .setAttribute("name", data[5].ophand00);
@@ -100,7 +111,6 @@ function newcard_get(){
       document
         .getElementsByClassName("com_card")[5]
         .setAttribute("name", data[9].ophand04);
-        
     });
   });
 }
@@ -108,7 +118,7 @@ function newcard_get(){
 document.getElementById("card_change").addEventListener("click", (e) => {
   e.preventDefault();
   turn_background();
-  setTimeout(newcard_get,1500);
-  
-  setTimeout(classname_normal,2000);
+  setTimeout(newcard_get, 1500);
+
+  setTimeout(classname_normal, 2000);
 });
