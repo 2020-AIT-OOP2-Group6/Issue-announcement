@@ -1,4 +1,4 @@
-function result_show(){
+function result_show() {
   result.className = "gameset";
 }
 
@@ -24,35 +24,85 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       "&ophand3=" +
       document.getElementsByClassName("com_card")[4].getAttribute("name") +
       "&ophand4=" +
-      document.getElementsByClassName("com_card")[5].getAttribute("name")
+      document.getElementsByClassName("com_card")[5].getAttribute("name") +
+      "&pname=" +
+      document.getElementById("pname").getAttribute("name") +
+      "&score=" +
+      document.getElementById("result_score").getAttribute("name")
   ).then((Response) => {
     console.log(Response);
     Response.json().then((data) => {
-      console.log(data);
-      console.log(data[0]);
-      console.log(data[0].hand_score);
-      console.log(data[2].c0);
-
       // var handscore = document.getElementById("play_score");
       // console.log(handscore);
       // handscore.innerHTML = "<h1>player score:" + data[0].hand_score + "</h1>";
-      
 
       // var ophandscore = document.getElementById("com_score");
       // console.log(ophandscore);
       // ophandscore.innerHTML = "<h1>com score:" + data[1].ophand_score + "</h1>";
 
-      var score_i_t = document.getElementById("result_score");
-      console.log(score_i_t)
-      score_i_t.innerHTML = 'スコア：'+data[0].hand_score+'点'
-    
-      document.getElementsByClassName("com_card")[1].setAttribute('src','/static/'+ data[2].c0);
-      document.getElementsByClassName("com_card")[2].setAttribute('src','/static/'+ data[3].c1);
-      document.getElementsByClassName("com_card")[3].setAttribute('src','/static/'+ data[4].c2);
-      document.getElementsByClassName("com_card")[4].setAttribute('src','/static/'+ data[5].c3);
-      document.getElementsByClassName("com_card")[5].setAttribute('src','/static/'+ data[6].c4);
+      var score_i_t = document.getElementById("result");
+      console.log(score_i_t);
+
+      score_i_t.innerHTML =
+        "<h3 name=" +
+        data[7].pname +
+        'id="pname">winner' +
+        data[7].pname +
+        "さん</h3><h3>スコア+" +
+        data[0].hand_score +
+        "点</h3>";
+
+      total_score =
+        data[0].hand_score +
+        Number(document.getElementById("result_score").getAttribute("name"));
+      console.log(total_score);
+      console.log("re");
+
+      var result_score_value = document.getElementById("result_score_value");
+      result_score_value.innerHTML = total_score;
+
+      //何ゲーム目なのか判断する変数
+      var round_count =
+        Number(document.getElementById("round_count").getAttribute("name")) + 1;
+
+      var next = document.getElementById("next");
+
+      console.log(round_count);
+
+      if (round_count < 6) {
+        next.innerHTML =
+          '<a href="/next?pname=' +
+          data[7].pname +
+          "&score=" +
+          total_score +
+          "&round_count=" +
+          round_count +
+          '">次のゲームへ</a>';
+      } else {
+        next.innerHTML =
+          '<h3>終了です</h3> <div id="next"><a href="/title?pname=' +
+          data[7].pname +
+          "&result_score=" +
+          total_score +
+          '"><div id="title"><button type="button" class="btn btn-primary">タイトルに戻る</button></div></a></div>';
+      }
+
+      document
+        .getElementsByClassName("com_card")[1]
+        .setAttribute("src", "/static/" + data[2].c0);
+      document
+        .getElementsByClassName("com_card")[2]
+        .setAttribute("src", "/static/" + data[3].c1);
+      document
+        .getElementsByClassName("com_card")[3]
+        .setAttribute("src", "/static/" + data[4].c2);
+      document
+        .getElementsByClassName("com_card")[4]
+        .setAttribute("src", "/static/" + data[5].c3);
+      document
+        .getElementsByClassName("com_card")[5]
+        .setAttribute("src", "/static/" + data[6].c4);
     });
   });
-  setTimeout(result_show,2000);
-  
+  setTimeout(result_show, 2000);
 });

@@ -106,18 +106,25 @@ class ChangeHand:
         random.shuffle(self.card_list)
 
         # 交換1
-        playerhand.pop(num1)
-        playerhand.append(self.card_list.pop(0))
+        if num1 != None:
+            # playerhand.pop(num1)
+            # playerhand.append(self.card_list.pop(0))
+            playerhand[num1] = self.card_list[0]
+            self.card_list.pop(0)
 
         # 交換２
         if num2 != None:
-            playerhand.pop(num2-1)
-            playerhand.append(self.card_list.pop(0))
+            # playerhand.pop(num2-1)
+            # playerhand.append(self.card_list.pop(0))
+            playerhand[num2] = self.card_list[0]
+            self.card_list.pop(0)
 
         # 交換３
         if num3 != None:
-            playerhand.pop(num3-2)
-            playerhand.append(self.card_list.pop(0))
+            # playerhand.pop(num3-2)
+            # playerhand.append(self.card_list.pop(0))
+            playerhand[num3] = self.card_list[0]
+            self.card_list.pop(0)
 
         change_comcards = self.comchange_select(comhand)
         if not change_comcards[0] == None:
@@ -132,7 +139,7 @@ class ChangeHand:
         # 手札最終表示
         print('-------after shuffle-------')
         # 数字の昇順に並び替える
-        playerhand = sorted(playerhand, key=lambda x: x['number'])
+        # playerhand = sorted(playerhand, key=lambda x: x['number'])
         comhand = sorted(comhand, key=lambda x: x['number'])
         # print(playerhand)
         # print(comhand)

@@ -232,47 +232,51 @@ class CompareHand:#(coh)
 
 if __name__ == "__main__":
     coh = CompareHand()
-    check_1 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
-    check_2 = [{'number': 4, 'symbol': 'Clubs', 'string': 'ClubsJ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}, {'number': 0, 'symbol': 'Joker', 'string': 'Joker'}]
-    #フォーカード
-    print(coh.judge_card(check_1,check_2))#playerはQのフォーカード、comはJ+Jokerのフォーカード
+    # check_1 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
+    # check_2 = [{'number': 4, 'symbol': 'Clubs', 'string': 'ClubsJ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}, {'number': 0, 'symbol': 'Joker', 'string': 'Joker'}]
+    # #フォーカード
+    # print(coh.judge_card(check_1,check_2))#playerはQのフォーカード、comはJ+Jokerのフォーカード
 
-    check_3 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
-    check_4 = [{'number': 4, 'symbol': 'Clubs', 'string': 'ClubsJ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}]
-    # フォーカード
-    print(coh.judge_card(check_4,check_3))#playerはJのフォーカード、comはQのフォーカード
+    # check_3 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}]
+    # check_4 = [{'number': 4, 'symbol': 'Clubs', 'string': 'ClubsJ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}]
+    # # フォーカード
+    # print(coh.judge_card(check_4,check_3))#playerはJのフォーカード、comはQのフォーカード
 
-    check_5 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}]
-    check_6 = [{'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}]
-    #フルハウス
-    print(coh.judge_card(check_5,check_6))#playerはQのスリーカード、comはKのスリーカード
+    # check_5 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}]
+    # check_6 = [{'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}]
+    # #フルハウス
+    # print(coh.judge_card(check_5,check_6))#playerはQのスリーカード、comはKのスリーカード
 
-    check_7 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 0, 'symbol': 'Joker', 'string': 'Joker'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}]
-    check_8 = [{'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}]
-    #フルハウス
-    print(coh.judge_card(check_8,check_7))#playerはKのスリーカード、comはQ+Jokerのスリーカード
+    # check_7 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 0, 'symbol': 'Joker', 'string': 'Joker'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}]
+    # check_8 = [{'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}]
+    # #フルハウス
+    # print(coh.judge_card(check_8,check_7))#playerはKのスリーカード、comはQ+Jokerのスリーカード
 
-    check_9 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Herats', 'string': 'HeratsQ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeratsA'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}]
-    check_10 = [{'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}]
-    #ツーペア（前ペア違い）
-    print(coh.judge_card(check_9,check_10))#playerはAQのツーペア、comはKJのツーペア
+    # check_9 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Herats', 'string': 'HeratsQ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeratsA'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}]
+    # check_10 = [{'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}]
+    # #ツーペア（前ペア違い）
+    # print(coh.judge_card(check_9,check_10))#playerはAQのツーペア、comはKJのツーペア
 
-    check_11 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsA'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
-    check_12 = [{'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 2, 'symbol': 'Diamonds', 'string': 'DiamondsK'}]
-    #ツーペア（次ペア違い）
-    print(coh.judge_card(check_11,check_12))#playerはAQのツーペア、comはKJのツーペア
+    # check_11 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsA'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 4, 'symbol': 'Diamonds', 'string': 'DiamondsJ'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
+    # check_12 = [{'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 2, 'symbol': 'Diamonds', 'string': 'DiamondsK'}]
+    # #ツーペア（次ペア違い）
+    # print(coh.judge_card(check_11,check_12))#playerはAQのツーペア、comはKJのツーペア
 
-    check_13 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
-    check_14 = [{'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 2, 'symbol': 'Diamonds', 'string': 'DiamondsK'}]
-    #ツーペア（キッカーあり、スートなし）
-    print(coh.judge_card(check_13,check_14))#playerはAKのツーペアQ、comはAKのツーペアJ
+    # check_13 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
+    # check_14 = [{'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 2, 'symbol': 'Diamonds', 'string': 'DiamondsK'}]
+    # #ツーペア（キッカーあり、スートなし）
+    # print(coh.judge_card(check_13,check_14))#playerはAKのツーペアQ、comはAKのツーペアJ
 
-    check_15 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}]
-    check_16= [{'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 2, 'symbol': 'Diamonds', 'string': 'DiamondsK'}]
-    #ツーペア（キッカーあり、スートあり）
-    print(coh.judge_card(check_15,check_16))#playerはAKのツーペアHeartsQ、comはAKのツーペアDiamondQ
+    # check_15 = [{'number': 1, 'symbol': 'Clubs', 'string': 'ClubsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Clubs', 'string': 'ClubsK'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}]
+    # check_16= [{'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Diamonds', 'string': 'DiamondsA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 2, 'symbol': 'Diamonds', 'string': 'DiamondsK'}]
+    # #ツーペア（キッカーあり、スートあり）
+    # print(coh.judge_card(check_15,check_16))#playerはAKのツーペアHeartsQ、comはAKのツーペアDiamondQ
 
-    check_17 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
-    check_18 = [{'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}]
-    #ワンペア(キッカーあり、スートあり)
-    print(coh.judge_card(check_17,check_18))#playerはQのワンペアHeartsAKJ、comはQのワンペアSpadesAKJ
+    # check_17 = [{'number': 3, 'symbol': 'Clubs', 'string': 'ClubsQ'}, {'number': 3, 'symbol': 'Hearts', 'string': 'HeartsQ'}, {'number': 1, 'symbol': 'Hearts', 'string': 'HeartsA'}, {'number': 2, 'symbol': 'Hearts', 'string': 'HeartsK'}, {'number': 4, 'symbol': 'Hearts', 'string': 'HeartsJ'}]
+    # check_18 = [{'number': 3, 'symbol': 'Spades', 'string': 'SpadesQ'}, {'number': 3, 'symbol': 'Diamonds', 'string': 'DiamondsQ'}, {'number': 1, 'symbol': 'Spades', 'string': 'SpadesA'}, {'number': 2, 'symbol': 'Spades', 'string': 'SpadesK'}, {'number': 4, 'symbol': 'Spades', 'string': 'SpadesJ'}]
+    # #ワンペア(キッカーあり、スートあり)
+    # print(coh.judge_card(check_17,check_18))#playerはQのワンペアHeartsAKJ、comはQのワンペアSpadesAKJ
+
+    check_19 = [{'number':0,"symbol":'Joker','string':'Joker'}, {'number':1,'symbol':'Hearts','string':'HeartsA'}, {'number':1,'symbol':'Spades','string':'SpadesA'}, {'number':3,'symbol':'Diamonds','string':'DiamondsQ'}, {'number':3,'symbol':'Hearts','string':'HeartsQ'}]
+    check_20 = [{'number':2,'symbol':'Diamonds','string':'DiamondsK'}, {'number':2,'symbol':'Hearts','string':'HeartsK'}, {'number':2,'symbol':'Clubs','string':'ClubsK'}, {'number':4,'symbol':'Spades','string':'SpadesJ'}, {'number':4,'symbol':'Diamonds','string':'DiamondsJ'}]
+    print(coh.judge_card(check_19,check_20))
