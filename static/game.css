@@ -121,3 +121,11 @@ figure {
   transform: translateY(-80%) translateX(-50%);
 
 }
+
+#round_count{
+  text-align: center;
+  background-size: 0%;
+  background-color: white;
+  font-size: xx-large;
+  width: 100%;
+}
