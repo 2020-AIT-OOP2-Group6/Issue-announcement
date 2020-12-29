@@ -125,9 +125,18 @@ def battle():
 
     pname = request.args.get('pname', None)
 
+    #コンピュータ交換
+    hand_list, Opponent_list = change_class.change_cards(
+        hand_dictionary, ophand_dictionary, None, None, None)
+    
     # 勝敗判断
-    judge, hand_score = coh.judge_card(hand_dictionary, ophand_dictionary)
+    judge, hand_score = coh.judge_card(hand_dictionary, Opponent_list)
     print(judge,hand_score)
+
+    ophand_list = [d.get('string')for d in Opponent_list]
+    for index, target_list in enumerate(ophand_list):
+        ophand_list[index] = 'tranp_img/'+target_list+'.png'
+
     if (judge == 'player'):
         ophand_score = 0
         return jsonify({"hand_score": hand_score}, {"ophand_score": ophand_score}, {"c0": ophand_list[0]}, {"c1": ophand_list[1]}, {"c2": ophand_list[2]}, {"c3": ophand_list[3]}, {"c4": ophand_list[4]}, {"pname": pname})
