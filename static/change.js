@@ -141,7 +141,11 @@ function Alignment() {
         new_card_array.push(card_array[i])
       }
       if(count == 4 && card_array[i].match('J')){
-        new_card_array.push(card_array[i])
+        if(card_array[i].match('Joker')){
+        }
+        else{
+          new_card_array.push(card_array[i])
+        }
       }
     }
   }
