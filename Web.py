@@ -40,6 +40,37 @@ def title():
     pname = request.args.get("pname", None)
     score = request.args.get("result_score", None)
 
+    pname = request.args.get("pname", None)
+    score = request.args.get("result_score", None)
+
+    json_dict = {"player_name": pname, "score": int(score)}
+
+    # 空の辞書型のリスト
+    dic = []
+
+    with open('score.json') as f:
+        json_data = json.load(f)
+        json_data.append(json_dict)
+        # sortする
+        scores_sorted = sorted(
+            json_data, key=lambda x: x['score'], reverse=True)
+
+        if len(json_data) < 4:
+            for target_list in scores_sorted:
+                dic.append(target_list)
+        else:
+            for i, target_list in enumerate(scores_sorted):
+                if i < 3:
+                    dic.append(target_list)
+
+            pass
+
+        # dict型をjson文字列に変換
+        json_string = json.dumps(dic, indent=4)
+
+        with open('score.json', 'w') as f2:
+            f2.write(json_string)
+
     return render_template("index.html")
 
 
@@ -125,13 +156,13 @@ def battle():
 
     pname = request.args.get('pname', None)
 
-    #コンピュータ交換
+    # コンピュータ交換
     hand_list, Opponent_list = change_class.change_cards(
         hand_dictionary, ophand_dictionary, None, None, None)
-    
+
     # 勝敗判断
     judge, hand_score = coh.judge_card(hand_dictionary, Opponent_list)
-    print(judge,hand_score)
+    print(judge, hand_score)
 
     ophand_list = [d.get('string')for d in Opponent_list]
     for index, target_list in enumerate(ophand_list):
