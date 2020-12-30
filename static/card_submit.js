@@ -41,16 +41,7 @@ document.querySelector("#battle").addEventListener("click", (e) => {
       // ophandscore.innerHTML = "<h1>com score:" + data[1].ophand_score + "</h1>";
 
       var score_i_t = document.getElementById("result");
-      console.log(score_i_t);
-
-      score_i_t.innerHTML =
-        "<h3 name=" +
-        data[7].pname +
-        'id="pname">winner' +
-        data[7].pname +
-        "さん</h3><h3>スコア+" +
-        data[0].hand_score +
-        "点</h3>";
+      console.log(score_i_t); 
 
       total_score =
         data[0].hand_score +
@@ -69,22 +60,71 @@ document.querySelector("#battle").addEventListener("click", (e) => {
 
       console.log(round_count);
 
-      if (round_count < 6) {
-        next.innerHTML =
-          '<a href="/next?pname=' +
-          data[7].pname +
-          "&score=" +
-          total_score +
-          "&round_count=" +
-          round_count +
-          '">次のゲームへ</a>';
-      } else {
-        next.innerHTML =
-          '<h3>終了です</h3> <div id="next"><a href="/title?pname=' +
-          data[7].pname +
-          "&result_score=" +
-          total_score +
-          '"><div id="title"><button type="button" class="btn btn-primary">タイトルに戻る</button></div></a></div>';
+      
+      if(data[0].hand_score != 0){
+        if (round_count < 6) {
+          score_i_t.innerHTML =
+            "<h3 name=" +
+            data[7].pname +
+            'id="pname">winner ' +
+            data[7].pname +
+            "さん</h3><h3>スコア+" +
+            data[0].hand_score +
+            "点</h3>"+
+            '<a href="/next?pname=' +
+            data[7].pname +
+            "&score=" +
+            total_score +
+            "&round_count=" +
+            round_count +
+            '"><button class="btn btn-primary btn-lg">次のゲームへ</button></a>';
+          }else{
+            score_i_t.innerHTML =
+              "<h3 name=" +
+              data[7].pname +
+              'id="pname">winner ' +
+              data[7].pname +
+              "さん</h3><h3>スコア+" +
+              data[0].hand_score +
+              "点</h3>" +
+              '<h3>終了です</h3> <div id="next"><a href="/title?pname=' +
+              data[7].pname +
+              "&result_score=" +
+              total_score +
+              '"><div id="title"><button type="button" class="btn btn-primary">タイトルに戻る</button></div></a></div>';
+
+        }
+      }else{
+        if (round_count < 6) {
+          score_i_t.innerHTML =
+            "<h3 name=" +
+            data[7].pname +
+            'id="pname">winner ' +
+            "com</h3><h3>スコア+" +
+            data[0].hand_score +
+            "点</h3>" +
+            '<a href="/next?pname=' +
+            data[7].pname +
+            "&score=" +
+            total_score +
+            "&round_count=" +
+            round_count +
+            '"><button class="btn btn-primary btn-lg">次のゲームへ</button></a>';
+          }else{
+            score_i_t.innerHTML =
+              "<h3 name=" +
+              data[7].pname +
+              'id="pname">winner ' +
+              "com</h3><h3>スコア+" +
+              data[0].hand_score +
+              "点</h3>" +
+              '<h3>終了です</h3> <div id="next"><a href="/title?pname=' +
+              data[7].pname +
+              "&result_score=" +
+              total_score +
+              '"><div id="title"><button type="button" class="btn btn-primary">タイトルに戻る</button></div></a></div>';
+
+          }
       }
 
       document
