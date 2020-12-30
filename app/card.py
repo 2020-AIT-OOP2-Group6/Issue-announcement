@@ -39,7 +39,7 @@ def change():
     for hand in hand_list:
         hand_dictionary.append(Type_Adjust.Adjust(hand))
         pass
-    print('hello0')
+
     # 相手の手札のリスト
     ophand_list = []
     ophand_list.append(request.args.get('ophand0', None))
@@ -51,23 +51,21 @@ def change():
     for ophand in ophand_list:
         ophand_dictionary.append(Type_Adjust.Adjust(ophand))
         pass
-    print('hello1')
+
     change_card_list = []
     change_card_list.append(request.args.get('num1', None))
     change_card_list.append(request.args.get('num2', None))
     change_card_list.append(request.args.get('num3', None))
-    print(change_card_list)
-    print('hello2')
+
     for i, card in enumerate(change_card_list):
         if card == 'null':
             change_card_list[i] = None
         else:
             change_card_list[i] = int(change_card_list[i])
-    print('hello3')
-    print(change_card_list)
+
     hand_list, Opponent_list = change_class.change_cards(
         hand_dictionary, ophand_dictionary, change_card_list[0], change_card_list[1], change_card_list[2])
-    print('hello4')
+
     handstring = [d.get('string')for d in hand_list]
     oppostring = [d.get('string')for d in Opponent_list]
     for index, target_list in enumerate(handstring):
@@ -111,7 +109,7 @@ def battle():
         hand_dictionary, ophand_dictionary, None, None, None)
     # 勝敗判断
     judge, hand_score = coh.judge_card(hand_dictionary, Opponent_list)
-    print(judge, hand_score)
+
     ophand_list = [d.get('string')for d in Opponent_list]
     for index, target_list in enumerate(ophand_list):
         ophand_list[index] = 'tranp_img/'+target_list+'.png'
