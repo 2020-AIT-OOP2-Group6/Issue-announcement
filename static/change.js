@@ -115,10 +115,65 @@ function newcard_get() {
   });
 }
 
+function Alignment() {
+  var card_array = [];
+  card_array.push(document.getElementById("hand00").getAttribute('src').substr( 8 ));
+  card_array.push(document.getElementById("hand01").getAttribute('src').substr( 8 ));
+  card_array.push(document.getElementById("hand02").getAttribute('src').substr( 8 ));
+  card_array.push(document.getElementById("hand03").getAttribute('src').substr( 8 ));
+  card_array.push(document.getElementById("hand04").getAttribute('src').substr( 8 ));
+  console.log(card_array)
+
+  var new_card_array = [];
+
+  for(var count = 0;count < 5; count++){
+    for(var i = 0; i < card_array.length; i++){
+      if(count == 0 && card_array[i].match('Joker')){
+        new_card_array.push(card_array[i])
+      }
+      if(count == 1 && card_array[i].match('A')){
+        new_card_array.push(card_array[i])
+      }
+      if(count == 2 && card_array[i].match('K')){
+        new_card_array.push(card_array[i])
+      }
+      if(count == 3 && card_array[i].match('Q')){
+        new_card_array.push(card_array[i])
+      }
+      if(count == 4 && card_array[i].match('J')){
+        new_card_array.push(card_array[i])
+      }
+    }
+  }
+  console.log(new_card_array)
+
+  document
+    .getElementById("hand00")
+    .setAttribute("src", "/static/" + new_card_array[0]);
+  document
+    .getElementById("hand01")
+    .setAttribute("src", "/static/" + new_card_array[1]);
+  document
+    .getElementById("hand02")
+    .setAttribute("src", "/static/" + new_card_array[2]);
+  document
+    .getElementById("hand03")
+    .setAttribute("src", "/static/" + new_card_array[3]);
+  document
+    .getElementById("hand04")
+    .setAttribute("src", "/static/" + new_card_array[4]);
+  document.getElementById("hand00").setAttribute("tag", new_card_array[0]);
+  document.getElementById("hand01").setAttribute("tag", new_card_array[1]);
+  document.getElementById("hand02").setAttribute("tag", new_card_array[2]);
+  document.getElementById("hand03").setAttribute("tag", new_card_array[3]);
+  document.getElementById("hand04").setAttribute("tag", new_card_array[4]);
+}
+
 document.getElementById("card_change").addEventListener("click", (e) => {
   e.preventDefault();
   turn_background();
   setTimeout(newcard_get, 1500);
 
   setTimeout(classname_normal, 2000);
+  setTimeout(Alignment,2500);
 });
