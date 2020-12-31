@@ -31,6 +31,7 @@ app.register_blueprint(module_next)
 
 @app.route('/')
 def index():
+    
     return render_template("index.html")
 
 
