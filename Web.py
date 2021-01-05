@@ -205,6 +205,11 @@ def change():
     return jsonify({"hand00": handstring[0]}, {"hand01": handstring[1]}, {"hand02": handstring[2]}, {"hand03": handstring[3]}, {"hand04": handstring[4]}, {"ophand00": oppostring[0]}, {"ophand01": oppostring[1]}, {"ophand02": oppostring[2]}, {"ophand03": oppostring[3]}, {"ophand04": oppostring[4]})
 
 
+@app.route('/rurle')
+def rurle():
+    return render_template('rurle.html')
+
+
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す
     app.run(debug=False)
