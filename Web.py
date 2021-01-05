@@ -34,7 +34,9 @@ def index():
     
     return render_template("index.html")
 
-
+@app.route('/rurle')
+def rurle():
+    return render_template('rurle.html')
 if __name__ == "__main__":
     # 完成したら"debug=True"を消す
     app.run(debug=False)
